@@ -1,0 +1,20 @@
+name: Verificar RSS estadual Google Trends
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/probe-state-rss.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Testar RSS de Minas, Bahia, Amazonas, SP, RJ e Brasil
+        run: node collector/probe-state-rss.mjs
