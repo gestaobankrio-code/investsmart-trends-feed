@@ -2,6 +2,12 @@ name: Atualizar InvestSmart Trends
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "collector/**"
+      - ".github/workflows/collect.yml"
   schedule:
     - cron: "15 15 * * *"
 
