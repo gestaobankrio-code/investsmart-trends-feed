@@ -16,7 +16,7 @@ if (!projectId) throw new Error("GCP_PROJECT_ID não informado.");
 const LOOKBACK_DAYS = 35;
 const WEEK_LOOKBACK_DAYS = 49;
 const MAX_TERMS_PER_SOURCE = 20;
-const FINANCE_REGEX = String.raw`(?i)(bitcoin|ethereum|criptomoed|criptoativ|ibovespa|bovespa|\\bselic\\b|\\bipca\\b|\\bcdi\\b|\\bcdb\\b|\\blci\\b|\\blca\\b|\\bfii\\b|fiagro|tesouro direto|tesouro selic|fundos? imobili[aá]ri|renda fixa|bolsa de valores|d[oó]lar|c[aâ]mbio|investiment|mercado financeiro|dividend|taxa de juros|juros compostos|a[cç][oõ]es|renda vari[aá]vel|previd[eê]ncia privada|banco central|fundos? de investiment)`;
+const FINANCE_REGEX = String.raw`(?i)(bitcoin|ethereum|criptomoed|criptoativ|ibovespa|bovespa|\bselic\b|\bipca\b|\bcdi\b|\bcdb\b|\blci\b|\blca\b|\bfii\b|fiagro|tesouro direto|tesouro selic|fundos? imobili[aá]ri|renda fixa|bolsa de valores|d[oó]lar|c[aâ]mbio|investiment|mercado financeiro|dividend|taxa de juros|juros compostos|a[cç][oõ]es|renda vari[aá]vel|previd[eê]ncia privada|banco central|fundos? de investiment)`;
 
 const TABLES = {
   top: "bigquery-public-data.google_trends.international_top_terms",
