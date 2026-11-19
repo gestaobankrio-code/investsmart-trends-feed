@@ -2,6 +2,13 @@ name: Monitorar freshness do feed
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/data/**"
+      - "collector/check-freshness.mjs"
+      - ".github/workflows/freshness.yml"
   schedule:
     - cron: "0 17 * * *"
 
@@ -43,6 +50,25 @@ jobs:
               state: "open",
               labels: "feed-stale"
             });
+            try {
+              await github.rest.issues.getLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: "feed-stale"
+              });
+            } catch (error) {
+              if (error.status === 404) {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: "feed-stale",
+                  color: "D93F0B",
+                  description: "Feed público desatualizado"
+                });
+              } else {
+                throw error;
+              }
+            }
             const existing = issues.find((issue) => issue.title === title);
             const body = [
               "O feed público do InvestSmart Intelligence ultrapassou o limite operacional de 3 dias.",
