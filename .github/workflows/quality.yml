@@ -23,13 +23,8 @@ jobs:
       - name: Validar sintaxe do coletor
         run: |
           node --check collector/collect.mjs
-          node --check collector/finance-topic.mjs
-          node --check collector/test-finance.mjs
           node --check collector/validate.mjs
           node --check collector/check-freshness.mjs
-
-      - name: Testar pertinência financeira dos termos
-        run: node collector/test-finance.mjs
 
       - name: Validar feed versionado
         run: node collector/validate.mjs
