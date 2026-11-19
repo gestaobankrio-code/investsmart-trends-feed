@@ -16,6 +16,10 @@ if (!Array.isArray(terms) || terms.length === 0) throw new Error("collector/term
 const q = (value) => `'${String(value).replaceAll("'", "''")}'`;
 const termsSql = terms.map((t) => q(t.toLowerCase())).join(", ");
 
+// A fonte publica Top 25/Top Rising, não séries contínuas para termos arbitrários.
+// A janela considera aparições recentes, sem inventar registros ausentes.
+const LOOKBACK_DAYS = 35;
+
 const TABLES = {
   top: "bigquery-public-data.google_trends.international_top_terms",
   rising: "bigquery-public-data.google_trends.international_top_rising_terms",
@@ -30,25 +34,21 @@ function bq(table, includeGain = false) {
       country_name,
       region_code,
       region_name,
-      LOWER(term) AS term,
+      LOWER(TRIM(term)) AS term,
       SAFE_CAST(score AS FLOAT64) AS score,
       CAST(week AS STRING) AS week,
       SAFE_CAST(rank AS INT64) AS rank
       ${extra}
     FROM \`${table}\`
-    WHERE refresh_date = (
-      SELECT MAX(refresh_date)
-      FROM \`${table}\`
-      WHERE country_code = 'BR'
-    )
-      AND country_code = 'BR'
-      AND LOWER(term) IN UNNEST([${termsSql}])
+    WHERE country_code = 'BR'
+      AND refresh_date >= DATE_SUB(CURRENT_DATE('UTC'), INTERVAL ${LOOKBACK_DAYS} DAY)
+      AND LOWER(TRIM(term)) IN UNNEST([${termsSql}])
     ORDER BY term, region_code, week
   `;
 
   const stdout = execFileSync(
     "bq",
-    ["query", "--quiet", "--use_legacy_sql=false", "--format=json", `--project_id=${projectId}`, sql],
+    ["query", "--quiet", "--use_legacy_sql=false", "--format=json", "--max_rows=10000", `--project_id=${projectId}`, sql],
     { encoding: "utf8", maxBuffer: 20 * 1024 * 1024 },
   );
   const rows = JSON.parse(stdout || "[]");
@@ -59,7 +59,7 @@ function bq(table, includeGain = false) {
 const topRows = bq(TABLES.top, false);
 const risingRows = bq(TABLES.rising, true);
 if (!topRows.length && !risingRows.length) {
-  throw new Error("Nenhum termo curado apareceu no último refresh do Google Trends para BR.");
+  throw new Error(`Nenhum termo financeiro da lista apareceu no Top 25/Top Rising do Brasil nos últimos ${LOOKBACK_DAYS} dias. A fonte pública não garante dados para palavras-chave específicas; o feed anterior foi preservado, sem atualização fictícia.`);
 }
 
 const UF_BY_REGION = new Map([
