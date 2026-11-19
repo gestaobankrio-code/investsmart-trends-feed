@@ -1,15 +1,17 @@
 {
   "status": "ok",
-  "versaoDados": "6671442cef99b471",
+  "versaoDados": "6e08857ed07e79bd",
   "situacaoFonte": "atualizada",
   "ultimoResultadoColeta": "dados_reais_extraidos",
-  "ultimaVerificacao": "2026-11-19T20:28:33.450Z",
-  "ultimaAtualizacao": "2026-11-19T20:28:33.450Z",
-  "dataFonte": "2026-11-18",
+  "ultimaVerificacao": "2026-11-19T20:30:50.844Z",
+  "ultimaAtualizacao": "2026-11-19T20:30:50.844Z",
+  "dataFonte": "2026-11-17",
   "semana": "2026-11-15",
-  "totalRegistros": 1165,
-  "termos": 45,
+  "totalRegistros": 243,
+  "termos": 9,
   "ufs": 27,
   "origemExtracao": "bigquery_live",
-  "descoberta": "sem_termos_predefinidos"
+  "descoberta": "termos_reais_com_classificacao_financeira",
+  "classificacao": "regras_de_dominio_v1",
+  "escopoTermos": "destaques_nacionais_com_series_por_uf"
 }
