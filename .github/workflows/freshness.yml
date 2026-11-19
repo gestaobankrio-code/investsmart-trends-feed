@@ -1,0 +1,97 @@
+name: Monitorar freshness do feed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 17 * * *"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Verificar idade do feed
+        id: freshness
+        shell: bash
+        run: |
+          set +e
+          node collector/check-freshness.mjs --max-days=3
+          code=$?
+          if [ "$code" -eq 0 ]; then
+            echo "stale=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
+      - name: Abrir ou atualizar alerta
+        if: steps.freshness.outputs.stale == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const title = "[Feed] Google Trends desatualizado";
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "feed-stale"
+            });
+            const existing = issues.find((issue) => issue.title === title);
+            const body = [
+              "O feed público do InvestSmart Intelligence ultrapassou o limite operacional de 3 dias.",
+              "",
+              "A interface continua exibindo somente dados reais e marca o conjunto como desatualizado.",
+              "",
+              "Verifique o workflow **Atualizar InvestSmart Trends** e a autenticação Google Cloud."
+            ].join("\n");
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Nova verificação em ${new Date().toISOString()}: feed continua desatualizado.`
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ["feed-stale"]
+              });
+            }
+
+      - name: Fechar alerta quando normalizado
+        if: steps.freshness.outputs.stale == 'false'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "feed-stale"
+            });
+            for (const issue of issues) {
+              if (issue.title === "[Feed] Google Trends desatualizado") {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: `Feed normalizado em ${new Date().toISOString()}.`
+                });
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  state: "closed"
+                });
+              }
+            }
