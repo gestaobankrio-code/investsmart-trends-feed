@@ -4,22 +4,19 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
 const ROOT = resolve(import.meta.dirname, "..");
-const TERMS_FILE = resolve(ROOT, "collector/terms.json");
 const OUT_FILE = resolve(ROOT, "docs/data/trends.json");
 const STATUS_FILE = resolve(ROOT, "docs/data/status.json");
 
 const projectId = process.env.GCP_PROJECT_ID;
 if (!projectId) throw new Error("GCP_PROJECT_ID não informado.");
 
-const { terms } = JSON.parse(readFileSync(TERMS_FILE, "utf8"));
-if (!Array.isArray(terms) || terms.length === 0) throw new Error("collector/terms.json sem termos.");
-
-const q = (value) => `'${String(value).replaceAll("'", "''")}'`;
-const termsSql = terms.map((t) => q(t.toLowerCase())).join(", ");
-
-// A fonte publica Top 25/Top Rising, não séries contínuas para termos arbitrários.
-// A janela considera aparições recentes, sem inventar registros ausentes.
+// Descobre palavras-chave reais em cada coleta. Apenas a taxonomia financeira
+// é definida no código; os termos, índices, ranks, datas e variações vêm do BigQuery.
+// BigQuery fornece SOMENTE Top 25/Top Rising, não consultas arbitrárias por palavra.
 const LOOKBACK_DAYS = 35;
+const WEEK_LOOKBACK_DAYS = 49;
+const MAX_TERMS_PER_SOURCE = 20;
+const FINANCE_REGEX = String.raw`(?i)(bitcoin|ethereum|criptomoed|criptoativ|ibovespa|bovespa|\\bselic\\b|\\bipca\\b|\\bcdi\\b|\\bcdb\\b|\\blci\\b|\\blca\\b|\\bfii\\b|fiagro|tesouro direto|tesouro selic|fundos? imobili[aá]ri|renda fixa|bolsa de valores|d[oó]lar|c[aâ]mbio|investiment|mercado financeiro|dividend|taxa de juros|juros compostos|a[cç][oõ]es|renda vari[aá]vel|previd[eê]ncia privada|banco central|fundos? de investiment)`;
 
 const TABLES = {
   top: "bigquery-public-data.google_trends.international_top_terms",
@@ -29,6 +26,17 @@ const TABLES = {
 function bq(table, includeGain = false) {
   const extra = includeGain ? ", SAFE_CAST(percent_gain AS FLOAT64) AS percent_gain" : "";
   const sql = `
+    WITH discovered_terms AS (
+      SELECT LOWER(TRIM(term)) AS financial_term,
+             MAX(refresh_date) AS latest_seen
+      FROM \`${table}\`
+      WHERE country_code = 'BR'
+        AND refresh_date >= DATE_SUB(CURRENT_DATE('UTC'), INTERVAL ${LOOKBACK_DAYS} DAY)
+        AND REGEXP_CONTAINS(term, r'${FINANCE_REGEX}')
+      GROUP BY financial_term
+      ORDER BY latest_seen DESC, financial_term
+      LIMIT ${MAX_TERMS_PER_SOURCE}
+    )
     SELECT
       CAST(refresh_date AS STRING) AS refresh_date,
       country_code,
@@ -43,7 +51,10 @@ function bq(table, includeGain = false) {
     FROM \`${table}\`
     WHERE country_code = 'BR'
       AND refresh_date >= DATE_SUB(CURRENT_DATE('UTC'), INTERVAL ${LOOKBACK_DAYS} DAY)
-      AND LOWER(TRIM(term)) IN UNNEST([${termsSql}])
+      AND SAFE_CAST(week AS DATE) >= DATE_SUB(CURRENT_DATE('UTC'), INTERVAL ${WEEK_LOOKBACK_DAYS} DAY)
+      AND LOWER(TRIM(term)) IN (SELECT financial_term FROM discovered_terms)
+    QUALIFY refresh_date = MAX(refresh_date)
+      OVER (PARTITION BY LOWER(TRIM(term)), region_code)
     ORDER BY term, region_code, week
   `;
 
@@ -54,13 +65,14 @@ function bq(table, includeGain = false) {
   );
   const rows = JSON.parse(stdout || "[]");
   if (!Array.isArray(rows)) throw new Error(`Resposta inesperada do BigQuery em ${table}.`);
+  if (rows.length >= 10000) throw new Error(`Limite de registros atingido em ${table}; abortado para evitar feed truncado.`);
   return rows;
 }
 
 const topRows = bq(TABLES.top, false);
 const risingRows = bq(TABLES.rising, true);
 if (!topRows.length && !risingRows.length) {
-  // Ausência de palavras-chave não é falha de autenticação nem autorização para inventar dados.
+  // Nenhuma palavra-chave financeira descoberta não autoriza inventar dados.
   // Mantemos o último feed real, registrando apenas a consulta sem novos termos.
   const previousFeed = JSON.parse(readFileSync(OUT_FILE, "utf8"));
   const previousStatus = JSON.parse(readFileSync(STATUS_FILE, "utf8"));
@@ -80,11 +92,11 @@ if (!topRows.length && !risingRows.length) {
       ultimaVerificacao: new Date().toISOString(),
       dataFonte: sourceDate,
       situacaoFonte: "desatualizada",
-      ultimoResultadoColeta: "sem_termos_recentes",
-      mensagemOperacional: "Nenhuma palavra-chave curada apareceu no período consultado. Mantidos dados reais históricos.",
+      ultimoResultadoColeta: "sem_termos_financeiros",
+      mensagemOperacional: "Nenhum termo financeiro foi descoberto no Top 25/Top Rising do período consultado. Dados históricos preservados.",
     }, null, 2) + "\n",
   );
-  console.warn(`Sem termos financeiros nos últimos ${LOOKBACK_DAYS} dias. Feed anterior preservado; monitoramento de freshness continuará sinalizando atraso.`);
+  console.warn(`Nenhum termo financeiro descoberto nos últimos ${LOOKBACK_DAYS} dias. Feed anterior preservado e sinalizado como histórico.`);
   process.exit(0);
 }
 
@@ -129,9 +141,8 @@ const risingGroups = groupRows(risingRows);
 const topTerms = new Set([...topGroups.values()].flat().map((r) => r.term));
 const risingTerms = new Set([...risingGroups.values()].flat().map((r) => r.term));
 
-const selected = terms
-  .map((t) => t.toLowerCase())
-  .filter((t) => topTerms.has(t) || risingTerms.has(t));
+const selected = [...new Set([...topTerms, ...risingTerms])]
+  .sort((a, b) => a.localeCompare(b, "pt-BR"));
 
 const records = [];
 
@@ -205,9 +216,10 @@ const feed = {
   ufsComDados: ufs.size,
   termosComDados: actualTerms.length,
   totalRegistros: records.length,
+  descoberta: "dinamica_taxonomia_financeira",
   termos: actualTerms,
   metodologia: {
-    amostra: "Apenas termos financeiros curados presentes no Top 25 ou Top Rising do Google Trends Public Dataset para o Brasil. Cobertura parcial.",
+    amostra: "Termos financeiros descobertos dinamicamente entre Top 25 e Top Rising do Google Trends Public Dataset para o Brasil, por regra temática transparente. Cobertura parcial.",
     indice: "Índice relativo 0-100 por termo e região; não representa quantidade absoluta de buscas.",
     variacao: "Diferença em pontos do índice entre as duas semanas mais recentes disponíveis; não é crescimento percentual.",
     ausencias: "UF sem registro não equivale a índice zero.",
@@ -229,6 +241,7 @@ const status = {
   termos: actualTerms.length,
   ufs: ufs.size,
   origemExtracao: "bigquery_live",
+  descoberta: "dinamica_taxonomia_financeira",
 };
 
 mkdirSync(dirname(OUT_FILE), { recursive: true });
