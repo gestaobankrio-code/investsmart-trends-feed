@@ -2,6 +2,7 @@
 // Não é uma lista de buscas ou de resultados a publicar. Casos ambíguos são excluídos.
 const CONCEPTS = [
   /\b(bitcoin|ethereum|criptomoed\w*|criptoativ\w*|blockchain|ibovespa|bovespa)\b/,
+  /\b(ipo|oferta publica de acoes|itau|bradesco|nubank|btg pactual|banco do brasil)\b/,
   /\b(selic|ipca|igpm|cdi|cdb|lci|lca|fii|fiagro|cri|cra|etf|bdr)\b/,
   /\b(dolar|cambio|forex|bacen|copom|tesouro|dividendo\w*|rentabilidade)\b/,
   /\b(investiment\w*|investir|investidor\w*|financiamen\w*|fintech\w*|credito|debito|emprestimo\w*)\b/,
