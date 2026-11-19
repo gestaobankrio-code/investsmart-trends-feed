@@ -5,7 +5,7 @@ const collector = readFileSync(new URL("./collect.mjs", import.meta.url), "utf8"
 
 // Proteção contra regressões: a seleção dos termos é sempre realizada
 // pela fonte; não deve existir filtro lexical, lista curada ou amostragem por termo.
-assert.match(collector, /SELECT MAX\(refresh_date\)/);
+assert.match(collector, /refresh_date >= DATE_SUB/);
 assert.match(collector, /WHERE country_code = 'BR'/);
 assert.match(collector, /termos_reais_com_classificacao_financeira/);
 for (const forbidden of [
