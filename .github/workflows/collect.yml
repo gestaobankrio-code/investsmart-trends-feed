@@ -14,6 +14,7 @@ on:
 permissions:
   contents: write
   id-token: write
+  issues: write
 
 concurrency:
   group: investsmart-trends-refresh
@@ -84,3 +85,54 @@ jobs:
           git add docs/data/trends.json docs/data/status.json
           git commit -m "data: atualizar InvestSmart Trends $(date -u +%F)"
           git push origin HEAD:main
+
+      - name: Sincronizar alerta de freshness
+        if: success()
+        uses: actions/github-script@v8
+        env:
+          SOURCE_STALE: ${{ steps.freshness.outcome == 'failure' }}
+        with:
+          script: |
+            const stale = process.env.SOURCE_STALE === "true";
+            const title = "[Feed] Google Trends desatualizado";
+            const repo = { owner: context.repo.owner, repo: context.repo.repo };
+            const { data: issues } = await github.rest.issues.listForRepo({
+              ...repo, state: "open", labels: "feed-stale", per_page: 100,
+            });
+            const existing = issues.find(issue => issue.title === title);
+            if (!stale && existing) {
+              await github.rest.issues.createComment({
+                ...repo, issue_number: existing.number,
+                body: "A fonte voltou a ter dados com até 3 dias na execução " + context.runId + ".",
+              });
+              await github.rest.issues.update({
+                ...repo, issue_number: existing.number, state: "closed",
+              });
+            }
+            if (!stale) return;
+            try {
+              await github.rest.issues.getLabel({ ...repo, name: "feed-stale" });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              await github.rest.issues.createLabel({
+                ...repo, name: "feed-stale", color: "D93F0B",
+                description: "Dados reais do Google Trends mais antigos que 3 dias",
+              });
+            }
+            const body = [
+              "A coleta e a publicação podem funcionar normalmente, mas a fonte pública não",
+              "apresenta termos financeiros curados com até 3 dias.",
+              "",
+              "A plataforma mantém dados reais históricos identificados como desatualizados.",
+              "Não alterar datas nem fabricar índices para eliminar este alerta.",
+              "",
+              "Execução de referência: " + context.serverUrl + "/" + context.repo.owner + "/" +
+                context.repo.repo + "/actions/runs/" + context.runId,
+            ].join("\n");
+            if (!existing) {
+              await github.rest.issues.create({ ...repo, title, body, labels: ["feed-stale"] });
+            } else {
+              await github.rest.issues.update({
+                ...repo, issue_number: existing.number, body,
+              });
+            }
