@@ -9,7 +9,7 @@ Google Trends Public Dataset no BigQuery:
 - `bigquery-public-data.google_trends.international_top_terms`
 - `bigquery-public-data.google_trends.international_top_rising_terms`
 
-O dataset internacional disponibiliza Top 25 e Top Rising por país e sub-região. O coletor seleciona o Brasil (`country_code = BR`) e lê **todos os termos encontrados no último refresh de cada tabela**, sem lista fixa, correspondência de palavras-chave, classificação temática ou limite artificial de termos. A fonte inclui assuntos não financeiros. Não representa todas as buscas feitas no Google.
+O dataset internacional disponibiliza Top 25 e Top Rising por país e sub-região. O coletor descobre os termos de busca reais do Brasil (`country_code = BR`) nas atualizações das últimas cinco semanas, sem cadastrar palavras-chave de saída. Em seguida, aplica critérios de relevância do mercado financeiro (`collector/finance-relevance.mjs`); não fabrica termos, valores ou índices. Essa classificação temática é uma regra operacional, não uma categoria certificada pelo Google. O mesmo destaque nacional pode ter séries regionais em várias UFs, o que **não significa uma tendência exclusiva daquele estado**.
 
 ## Arquivos públicos
 
@@ -27,7 +27,9 @@ A coleta:
 - preserva ausência de dado como ausência, não como índice zero;
 - trata o índice como escala relativa 0–100;
 - calcula variação como diferença em pontos entre as semanas mais recentes disponíveis;
-- preserva termos de qualquer assunto retornados pelo dataset, rejeitando apenas registros regionais inválidos;
+- apresenta apenas os termos reais cuja relevância financeira foi validada por critérios de domínio;
+- não predefine quais palavras de busca aparecerão no dashboard;
+- distingue termos nacionais de séries regionais, sem interpretar múltiplas UFs como assuntos independentes;
 - se a fonte não retorna dados, não publica um resultado fictício nem declara falsa atualização;
 - mantém alerta quando a data de origem é mais antiga que três dias.
 
