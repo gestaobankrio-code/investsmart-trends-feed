@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "status": "ok",
   "versaoDados": "cd8bfadc1055ea66",
-  "geradoEm": "2026-11-19T19:44:53.236Z",
+  "geradoEm": "2026-11-19T19:48:13.537Z",
   "origemExtracao": "bigquery_live",
   "fonteOficial": "Google Trends Public Dataset no BigQuery",
   "modo": "dados_reais_parciais",
