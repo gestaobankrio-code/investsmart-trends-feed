@@ -60,7 +60,18 @@ jobs:
         run: node collector/validate.mjs
 
       - name: Verificar freshness após coleta
+        id: freshness
+        # A fonte pode não trazer os termos financeiros diariamente; a falta de
+        # novidade é alerta de dados, não falha de autenticação/coleta.
+        continue-on-error: true
         run: node collector/check-freshness.mjs --max-days=3
+
+      - name: Registrar alerta de dados antigos
+        if: steps.freshness.outcome == 'failure'
+        run: |
+          echo "::warning::O Google Trends público não trouxe termos financeiros com até 3 dias. Os dados reais serão publicados com a data original e sinalizados como históricos."
+          echo "### Atenção: fonte Google Trends desatualizada" >> "$GITHUB_STEP_SUMMARY"
+          echo "A coleta foi executada, mas a fonte não possui termos curados recentes. O feed conserva datas reais e a rotina de monitoramento abre alerta." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Publicar atualização
         run: |
