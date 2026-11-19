@@ -27,6 +27,26 @@ if ! gcloud iam service-accounts describe "$SERVICE_ACCOUNT_EMAIL" --project="$P
   gcloud iam service-accounts create "$SERVICE_ACCOUNT_ID"     --display-name="InvestSmart Trends Feed"     --project="$PROJECT_ID"
 fi
 
+echo "Confirmando propagação da service account no IAM..."
+visible="false"
+for attempt in $(seq 1 12); do
+  if gcloud iam service-accounts describe "$SERVICE_ACCOUNT_EMAIL"     --project="$PROJECT_ID"     --format="value(uniqueId)" >/tmp/investsmart-sa-id 2>/dev/null; then
+    if [[ -s /tmp/investsmart-sa-id ]]; then
+      visible="true"
+      break
+    fi
+  fi
+  sleep 5
+done
+
+if [[ "$visible" != "true" ]]; then
+  echo "ERRO: a service account foi criada, mas ainda não está visível no IAM."
+  echo "Execute novamente este mesmo script depois que o comando abaixo retornar um uniqueId:"
+  echo "gcloud iam service-accounts describe $SERVICE_ACCOUNT_EMAIL --project=$PROJECT_ID --format='value(uniqueId)'"
+  exit 1
+fi
+
+echo "Service account visível no IAM: $(cat /tmp/investsmart-sa-id)"
 echo "Concedendo permissão mínima para executar jobs BigQuery..."
 gcloud projects add-iam-policy-binding "$PROJECT_ID"   --member="serviceAccount:$SERVICE_ACCOUNT_EMAIL"   --role="roles/bigquery.jobUser"   --condition=None >/dev/null
 
