@@ -1,0 +1,30 @@
+name: Validar feed e coletor
+
+on:
+  push:
+    branches:
+      - main
+      - "prod/**"
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Validar sintaxe do coletor
+        run: |
+          node --check collector/collect.mjs
+          node --check collector/validate.mjs
+          node --check collector/check-freshness.mjs
+
+      - name: Validar feed versionado
+        run: node collector/validate.mjs
