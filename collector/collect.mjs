@@ -123,8 +123,10 @@ for (const term of selected) {
     const previousCandidates = previousWeek ? rows.filter((r) => r.week === previousWeek) : [];
     const current = currentCandidates.sort((a,b) => Number(b.refresh_date.localeCompare(a.refresh_date)))[0];
     const previous = previousCandidates[0] ?? null;
-    const prev = previous?.score ?? null;
-    const now = current.score ?? null;
+    const prev = previous?.score != null ? Number(previous.score) : null;
+    const now = current.score != null ? Number(current.score) : null;
+    const rank = current.rank != null ? Number(current.rank) : null;
+    const gain = current.percent_gain != null ? Number(current.percent_gain) : null;
     const delta = now != null && prev != null ? Math.round((now - prev) * 100) / 100 : null;
 
     records.push({
@@ -134,12 +136,12 @@ for (const term of selected) {
       estado: current.region_name,
       semana: currentWeek,
       dataFonte: current.refresh_date,
-      rankNacionalTop25: source === "Mais buscados" ? current.rank ?? null : null,
+      rankNacionalTop25: source === "Mais buscados" ? rank : null,
       indiceAnterior: prev,
       indiceAtual: now,
       variacaoPontos: delta,
       tendencia: delta == null ? "Sem comparação" : delta > 0 ? "Em alta" : delta < 0 ? "Em queda" : "Estável",
-      ...(source === "Em ascensão" && current.percent_gain != null ? { ganhoPercentualFonte: current.percent_gain } : {}),
+      ...(source === "Em ascensão" && gain != null ? { ganhoPercentualFonte: gain } : {}),
     });
   }
 }
