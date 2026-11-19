@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
+import { isFinancialSearch } from "./finance-relevance.mjs";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const OUT_FILE = resolve(ROOT, "docs/data/trends.json");
@@ -10,10 +11,10 @@ const STATUS_FILE = resolve(ROOT, "docs/data/status.json");
 const projectId = process.env.GCP_PROJECT_ID;
 if (!projectId) throw new Error("GCP_PROJECT_ID não informado.");
 
-// Termos de pesquisa, ranking, índices e datas vêm diretamente do BigQuery.
-// Não há taxonomia financeira nem listas de termos pré-selecionados.
-// A fonte pública fornece apenas os termos Top 25 e Top Rising, não todas as pesquisas.
+// Termos, datas, posições e séries vêm do BigQuery. Critérios temáticos apenas
+// classificam os dados coletados; não produzem palavras-chave nem dados fictícios.
 const MAX_SOURCE_ROWS = 50000;
+const LOOKBACK_DAYS = 35;
 
 const TABLES = {
   top: "bigquery-public-data.google_trends.international_top_terms",
@@ -36,15 +37,15 @@ function bq(table, includeGain = false) {
       ${extra}
     FROM \`${table}\`
     WHERE country_code = 'BR'
-      AND refresh_date = (
-        SELECT MAX(refresh_date)
-        FROM \`${table}\`
-        WHERE country_code = 'BR'
-      )
-    QUALIFY DENSE_RANK() OVER (
-      PARTITION BY LOWER(TRIM(term)), region_code
-      ORDER BY week DESC
-    ) <= 2
+      AND refresh_date >= DATE_SUB(CURRENT_DATE('UTC'), INTERVAL ${LOOKBACK_DAYS} DAY)
+    QUALIFY ROW_NUMBER() OVER (
+      PARTITION BY LOWER(TRIM(term)), region_code, week
+      ORDER BY refresh_date DESC
+    ) = 1
+      AND DENSE_RANK() OVER (
+        PARTITION BY LOWER(TRIM(term)), region_code
+        ORDER BY week DESC
+      ) <= 2
     ORDER BY term, region_code, week
   `;
 
@@ -107,7 +108,11 @@ const topTerms = new Set([...topGroups.values()].flat().map((r) => r.term));
 const risingTerms = new Set([...risingGroups.values()].flat().map((r) => r.term));
 
 const selected = [...new Set([...topTerms, ...risingTerms])]
+  .filter(isFinancialSearch)
   .sort((a, b) => a.localeCompare(b, "pt-BR"));
+if (!selected.length) {
+  throw new Error("Nenhum termo com relevância financeira comprovada foi encontrado na fonte consultada. Feed anterior preservado sem inventar tendências.");
+}
 
 const records = [];
 
@@ -181,11 +186,13 @@ const feed = {
   ufsComDados: ufs.size,
   termosComDados: actualTerms.length,
   totalRegistros: records.length,
-  descoberta: "sem_termos_predefinidos",
+  descoberta: "termos_reais_com_classificacao_financeira",
+  classificacao: "regras_de_dominio_v1",
+  escopoTermos: "destaques_nacionais_com_series_por_uf",
   termos: actualTerms,
   metodologia: {
-    amostra: "Todos os termos presentes na atualização mais recente do Top 25 ou Top Rising do Google Trends Public Dataset para o Brasil; sem lista de palavras-chave nem filtro por tema. A amostra não representa todas as buscas.",
-    indice: "Índice relativo 0-100 por termo e região; não representa quantidade absoluta de buscas.",
+    amostra: "Somente termos reais identificados como financeiros por critérios temáticos auditáveis dentre os destaques nacionais Top 25 e Top Rising das últimas 5 semanas; nenhuma consulta ou valor é predefinido. A fonte não oferece tendências exclusivas de cada UF.",
+    indice: "Índice relativo por termo e região; não indica quantidade absoluta de buscas nem permite classificar os estados pelo maior mercado.",
     variacao: "Diferença em pontos do índice entre as duas semanas mais recentes disponíveis; não é crescimento percentual.",
     ausencias: "UF sem registro não equivale a índice zero.",
     cpc: "Não informado por esta fonte.",
@@ -206,7 +213,9 @@ const status = {
   termos: actualTerms.length,
   ufs: ufs.size,
   origemExtracao: "bigquery_live",
-  descoberta: "sem_termos_predefinidos",
+  descoberta: "termos_reais_com_classificacao_financeira",
+  classificacao: "regras_de_dominio_v1",
+  escopoTermos: "destaques_nacionais_com_series_por_uf",
 };
 
 mkdirSync(dirname(OUT_FILE), { recursive: true });
