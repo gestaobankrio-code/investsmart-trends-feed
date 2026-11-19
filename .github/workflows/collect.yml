@@ -84,7 +84,18 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data/trends.json docs/data/status.json
           git commit -m "data: atualizar InvestSmart Trends $(date -u +%F)"
-          git push origin HEAD:main
+          # Evita rejeição non-fast-forward quando mudanças de código chegam
+          # à main durante o job; sem force-push e sem sobrescrever commits.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "::warning::Publicação concorrente; tentativa $attempt de 3"
+          done
+          echo "::error::Não foi possível publicar após 3 tentativas"
+          exit 1
 
       - name: Sincronizar alerta de freshness
         if: success()
