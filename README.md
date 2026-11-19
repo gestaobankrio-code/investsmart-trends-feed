@@ -9,7 +9,7 @@ Google Trends Public Dataset no BigQuery:
 - `bigquery-public-data.google_trends.international_top_terms`
 - `bigquery-public-data.google_trends.international_top_rising_terms`
 
-O dataset internacional disponibiliza Top 25 e Top Rising por país e sub-região. O coletor filtra o Brasil (`country_code = BR`) e **descobre dinamicamente** os termos financeiros encontrados nas consultas reais. A taxonomia de assuntos financeiros fica em `collector/finance-topic.mjs`; não existe lista fixa de resultados, volumes, índices ou CPC. Termos ausentes na fonte não são preenchidos.
+O dataset internacional disponibiliza Top 25 e Top Rising por país e sub-região. O coletor seleciona o Brasil (`country_code = BR`) e lê **todos os termos encontrados no último refresh de cada tabela**, sem lista fixa, correspondência de palavras-chave, classificação temática ou limite artificial de termos. A fonte inclui assuntos não financeiros. Não representa todas as buscas feitas no Google.
 
 ## Arquivos públicos
 
@@ -27,8 +27,8 @@ A coleta:
 - preserva ausência de dado como ausência, não como índice zero;
 - trata o índice como escala relativa 0–100;
 - calcula variação como diferença em pontos entre as semanas mais recentes disponíveis;
-- rejeita termos não financeiros e registros regionais inválidos;
-- quando a fonte não retorna termos, preserva os últimos registros reais sem mascarar a idade dos dados;
+- preserva termos de qualquer assunto retornados pelo dataset, rejeitando apenas registros regionais inválidos;
+- se a fonte não retorna dados, não publica um resultado fictício nem declara falsa atualização;
 - mantém alerta quando a data de origem é mais antiga que três dias.
 
 ## Automação
@@ -55,7 +55,6 @@ O limite operacional é 3 dias. Quando ultrapassado, o workflow abre/atualiza um
 
 ```bash
 node --check collector/collect.mjs
-node collector/test-finance.mjs
 node collector/validate.mjs
 node collector/check-freshness.mjs --max-days=3
 ```
