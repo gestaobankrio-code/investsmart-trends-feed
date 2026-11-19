@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "versaoDados": "10f56c0b4603d20a",
+  "ultimaVerificacao": "2026-11-19T21:13:21.220Z",
+  "origemExtracao": "google_trends_rss_regional",
+  "escopoTermos": "descoberta_estadual_por_geo",
+  "ufConsultadas": 27,
+  "ufRespondidas": 27,
+  "ufComTermosFinanceiros": 11,
+  "totalRegistros": 14
+}
