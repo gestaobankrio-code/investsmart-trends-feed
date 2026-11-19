@@ -23,8 +23,12 @@ jobs:
       - name: Validar sintaxe do coletor
         run: |
           node --check collector/collect.mjs
+          node --check collector/test-no-predefined.mjs
           node --check collector/validate.mjs
           node --check collector/check-freshness.mjs
+
+      - name: Garantir ausência de termos pré-selecionados
+        run: node collector/test-no-predefined.mjs
 
       - name: Validar feed versionado
         run: node collector/validate.mjs
