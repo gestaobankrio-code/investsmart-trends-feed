@@ -1,0 +1,53 @@
+name: Atualizar tendências financeiras por estado
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "collector/state-trends.mjs"
+      - "collector/test-state-rss.mjs"
+      - "collector/validate-state.mjs"
+      - "collector/finance-relevance.mjs"
+      - ".github/workflows/state-trends.yml"
+  schedule:
+    - cron: "35 0,6,12,18 * * *"
+permissions:
+  contents: write
+concurrency:
+  group: investsmart-state-trends-feed
+  cancel-in-progress: false
+jobs:
+  refresh_states:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Testar parser estadual e classificação financeira
+        run: |
+          node --check collector/state-trends.mjs
+          node collector/test-state-rss.mjs
+      - name: Consultar os 27 feeds RSS estaduais do Google
+        run: node collector/state-trends.mjs
+      - name: Validar procedência por UF
+        run: node collector/validate-state.mjs
+      - name: Publicar somente registros verificados por estado
+        run: |
+          if git diff --quiet -- docs/data/state-trends.json docs/data/state-status.json; then
+            echo "RSS estadual sem alterações."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/state-trends.json docs/data/state-status.json
+          git commit -m "data: atualizar buscas reais por UF via RSS Google Trends"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            echo "::warning::Atualização concorrente, tentativa $attempt"
+          done
+          echo "::error::Falha de publicação após três tentativas."
+          exit 1
