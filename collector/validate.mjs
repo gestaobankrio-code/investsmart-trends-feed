@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { isFinancialSearch } from "./finance-relevance.mjs";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const feed = JSON.parse(readFileSync(resolve(ROOT, "docs/data/trends.json"), "utf8"));
@@ -10,7 +11,9 @@ const errors = [];
 
 if (feed.schemaVersion !== 1) errors.push("schemaVersion deve ser 1");
 if (feed.origemExtracao !== "bigquery_live") errors.push("origemExtracao deve ser bigquery_live");
-if (feed.descoberta !== "sem_termos_predefinidos") errors.push("coleta exige ausência de termos pré-selecionados");
+if (feed.descoberta !== "termos_reais_com_classificacao_financeira") errors.push("feed não declara seleção por categoria real");
+if (feed.classificacao !== "regras_de_dominio_v1") errors.push("classificação financeira não verificada");
+if (feed.escopoTermos !== "destaques_nacionais_com_series_por_uf") errors.push("origem nacional dos termos não informada");
 if (feed.versaoDados !== status.versaoDados) errors.push("versões do feed e status divergentes");
 if (!Array.isArray(feed.registros) || !feed.registros.length) errors.push("feed sem registros");
 if (!Array.isArray(feed.termos) || !feed.termos.length) errors.push("feed sem termos");
@@ -22,6 +25,7 @@ const seen = new Set();
 for (const r of feed.registros ?? []) {
   if (!UFS.has(r.uf)) errors.push(`UF inválida: ${r.uf}`);
   if (typeof r.termo !== "string" || !r.termo.trim()) errors.push("termo vazio");
+  else if (!isFinancialSearch(r.termo)) errors.push(`termo não financeiro: ${r.termo}`);
   if (!["Mais buscados","Em ascensão","Em ascensao"].includes(r.fonte)) errors.push(`fonte inválida: ${r.fonte}`);
   if (r.indiceAtual != null && (Number(r.indiceAtual) < 0 || Number(r.indiceAtual) > 100)) errors.push(`índice fora de 0-100: ${r.termo}/${r.uf}`);
   if (r.indiceAnterior != null && (Number(r.indiceAnterior) < 0 || Number(r.indiceAnterior) > 100)) errors.push(`índice anterior fora de 0-100: ${r.termo}/${r.uf}`);
