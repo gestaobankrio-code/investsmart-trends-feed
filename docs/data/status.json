@@ -1,14 +1,15 @@
 {
   "status": "ok",
-  "versaoDados": "cd8bfadc1055ea66",
-  "situacaoFonte": "desatualizada",
+  "versaoDados": "cc94118f7b425001",
+  "situacaoFonte": "atualizada",
   "ultimoResultadoColeta": "dados_reais_extraidos",
-  "ultimaVerificacao": "2026-11-19T19:48:13.537Z",
-  "ultimaAtualizacao": "2026-11-19T19:48:13.537Z",
-  "dataFonte": "2026-11-04",
-  "semana": "2026-11-01",
-  "totalRegistros": 77,
-  "termos": 4,
+  "ultimaVerificacao": "2026-11-19T19:55:42.679Z",
+  "ultimaAtualizacao": "2026-11-19T19:55:42.679Z",
+  "dataFonte": "2026-11-18",
+  "semana": "2026-11-15",
+  "totalRegistros": 927,
+  "termos": 36,
   "ufs": 27,
-  "origemExtracao": "bigquery_live"
+  "origemExtracao": "bigquery_live",
+  "descoberta": "dinamica_taxonomia_financeira"
 }
