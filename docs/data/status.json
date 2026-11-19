@@ -1,9 +1,14 @@
 {
   "status": "ok",
-  "ultimaVerificacao": "2026-11-05T20:20:39.600Z",
-  "ultimaAtualizacao": "2026-11-05T20:20:39.600Z",
-  "semana": "2026-10-25",
-  "totalRegistros": 189,
-  "termos": 7,
-  "ufs": 27
+  "versaoDados": "cd8bfadc1055ea66",
+  "situacaoFonte": "desatualizada",
+  "ultimoResultadoColeta": "dados_reais_extraidos",
+  "ultimaVerificacao": "2026-11-19T19:44:53.236Z",
+  "ultimaAtualizacao": "2026-11-19T19:44:53.236Z",
+  "dataFonte": "2026-11-04",
+  "semana": "2026-11-01",
+  "totalRegistros": 77,
+  "termos": 4,
+  "ufs": 27,
+  "origemExtracao": "bigquery_live"
 }
