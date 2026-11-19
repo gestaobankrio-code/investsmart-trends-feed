@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
@@ -59,7 +60,32 @@ function bq(table, includeGain = false) {
 const topRows = bq(TABLES.top, false);
 const risingRows = bq(TABLES.rising, true);
 if (!topRows.length && !risingRows.length) {
-  throw new Error(`Nenhum termo financeiro da lista apareceu no Top 25/Top Rising do Brasil nos últimos ${LOOKBACK_DAYS} dias. A fonte pública não garante dados para palavras-chave específicas; o feed anterior foi preservado, sem atualização fictícia.`);
+  // Ausência de palavras-chave não é falha de autenticação nem autorização para inventar dados.
+  // Mantemos o último feed real, registrando apenas a consulta sem novos termos.
+  const previousFeed = JSON.parse(readFileSync(OUT_FILE, "utf8"));
+  const previousStatus = JSON.parse(readFileSync(STATUS_FILE, "utf8"));
+  if (
+    previousFeed.origemExtracao !== "bigquery_live" ||
+    !Array.isArray(previousFeed.registros) ||
+    !previousFeed.registros.length
+  ) {
+    throw new Error("Sem termos recentes e sem feed real anterior para preservar.");
+  }
+  const sourceDate = previousFeed.registros.map((r) => r.dataFonte).filter(Boolean).sort().at(-1) ?? null;
+  writeFileSync(
+    STATUS_FILE,
+    JSON.stringify({
+      ...previousStatus,
+      status: "ok",
+      ultimaVerificacao: new Date().toISOString(),
+      dataFonte: sourceDate,
+      situacaoFonte: "desatualizada",
+      ultimoResultadoColeta: "sem_termos_recentes",
+      mensagemOperacional: "Nenhuma palavra-chave curada apareceu no período consultado. Mantidos dados reais históricos.",
+    }, null, 2) + "\n",
+  );
+  console.warn(`Sem termos financeiros nos últimos ${LOOKBACK_DAYS} dias. Feed anterior preservado; monitoramento de freshness continuará sinalizando atraso.`);
+  process.exit(0);
 }
 
 const UF_BY_REGION = new Map([
@@ -158,10 +184,18 @@ const weekEnd = dateAdd(weekStart, 6);
 const ufs = new Set(records.map((r) => r.uf));
 const actualTerms = [...new Set(records.map((r) => r.termo))].sort((a,b) => a.localeCompare(b, "pt-BR"));
 const generatedAt = new Date().toISOString();
+const versaoDados = createHash("sha256")
+  .update(JSON.stringify({ sourceDate, weekStart, records }))
+  .digest("hex").slice(0, 16);
+const sourceAgeDays = Math.max(0, Math.floor(
+  (Date.now() - Date.parse(`${sourceDate}T23:59:59Z`)) / 86400000,
+));
+const situacaoFonte = sourceAgeDays > 3 ? "desatualizada" : "atualizada";
 
 const feed = {
   schemaVersion: 1,
   status: "ok",
+  versaoDados,
   geradoEm: generatedAt,
   origemExtracao: "bigquery_live",
   fonteOficial: "Google Trends Public Dataset no BigQuery",
@@ -184,6 +218,9 @@ const feed = {
 
 const status = {
   status: "ok",
+  versaoDados,
+  situacaoFonte,
+  ultimoResultadoColeta: "dados_reais_extraidos",
   ultimaVerificacao: generatedAt,
   ultimaAtualizacao: generatedAt,
   dataFonte: sourceDate,
@@ -201,6 +238,9 @@ writeFileSync(STATUS_FILE, JSON.stringify(status, null, 2) + "\n");
 console.log(JSON.stringify({
   generatedAt,
   sourceDate,
+  situacaoFonte,
+  sourceAgeDays,
+  versaoDados,
   weekStart,
   weekEnd,
   records: records.length,
