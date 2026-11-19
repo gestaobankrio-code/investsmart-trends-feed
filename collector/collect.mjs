@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
+import { FINANCE_PATTERN } from "./finance-topic.mjs";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const OUT_FILE = resolve(ROOT, "docs/data/trends.json");
@@ -16,7 +17,6 @@ if (!projectId) throw new Error("GCP_PROJECT_ID não informado.");
 const LOOKBACK_DAYS = 35;
 const WEEK_LOOKBACK_DAYS = 49;
 const MAX_TERMS_PER_SOURCE = 20;
-const FINANCE_REGEX = String.raw`(?i)(bitcoin|ethereum|criptomoed|criptoativ|ibovespa|bovespa|\bselic\b|\bipca\b|\bcdi\b|\bcdb\b|\blci\b|\blca\b|\bfii\b|fiagro|tesouro direto|tesouro selic|fundos? imobili[aá]ri|renda fixa|bolsa de valores|d[oó]lar|c[aâ]mbio|investiment|mercado financeiro|dividend|taxa de juros|juros compostos|(?:^|[[:space:]])a[cç][oõ]es(?:$|[[:space:]])|renda vari[aá]vel|previd[eê]ncia privada|banco central|fundos? de investiment)`;
 
 const TABLES = {
   top: "bigquery-public-data.google_trends.international_top_terms",
@@ -32,7 +32,7 @@ function bq(table, includeGain = false) {
       FROM \`${table}\`
       WHERE country_code = 'BR'
         AND refresh_date >= DATE_SUB(CURRENT_DATE('UTC'), INTERVAL ${LOOKBACK_DAYS} DAY)
-        AND REGEXP_CONTAINS(term, r'${FINANCE_REGEX}')
+        AND REGEXP_CONTAINS(term, r'(?i)${FINANCE_PATTERN}')
       GROUP BY financial_term
       ORDER BY latest_seen DESC, financial_term
       LIMIT ${MAX_TERMS_PER_SOURCE}
