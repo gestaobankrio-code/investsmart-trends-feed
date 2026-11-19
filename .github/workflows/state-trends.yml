@@ -35,13 +35,13 @@ jobs:
         run: node collector/validate-state.mjs
       - name: Publicar somente registros verificados por estado
         run: |
-          if git diff --quiet -- docs/data/state-trends.json docs/data/state-status.json; then
+          git add docs/data/state-trends.json docs/data/state-status.json
+          if git diff --cached --quiet; then
             echo "RSS estadual sem alterações."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data/state-trends.json docs/data/state-status.json
           git commit -m "data: atualizar buscas reais por UF via RSS Google Trends"
           for attempt in 1 2 3; do
             git fetch origin main
