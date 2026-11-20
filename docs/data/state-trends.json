@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "versaoDados": "10f56c0b4603d20a",
-  "geradoEm": "2026-11-19T21:13:21.220Z",
+  "versaoDados": "aee022b7906165c5",
+  "geradoEm": "2026-11-20T07:41:23.640Z",
   "origemExtracao": "google_trends_rss_regional",
   "fonteOficial": "Google Trends Trending Now RSS",
   "escopoTermos": "descoberta_estadual_por_geo",
@@ -10,225 +10,215 @@
   "ufConsultadas": 27,
   "ufRespondidas": 27,
   "ufComTermosFinanceiros": 11,
-  "totalRegistros": 14,
+  "totalRegistros": 11,
   "cobertura": [
     {
       "uf": "AC",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 8,
+      "termosNoRSS": 3,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:18.929Z"
+      "consultadoEm": "2026-11-20T07:41:21.242Z"
     },
     {
       "uf": "AL",
-      "status": "sem_tendencia_financeira",
-      "termosNoRSS": 10,
-      "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:18.944Z"
+      "status": "com_termos_financeiros",
+      "termosNoRSS": 8,
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-20T07:41:21.426Z"
     },
     {
       "uf": "AP",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 7,
+      "termosNoRSS": 3,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:19.070Z"
+      "consultadoEm": "2026-11-20T07:41:21.240Z"
     },
     {
       "uf": "AM",
-      "status": "com_termos_financeiros",
+      "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
-      "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-19T21:13:19.269Z"
+      "termosFinanceiros": 0,
+      "consultadoEm": "2026-11-20T07:41:21.698Z"
     },
     {
       "uf": "BA",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:19.300Z"
+      "consultadoEm": "2026-11-20T07:41:21.816Z"
     },
     {
       "uf": "CE",
       "status": "com_termos_financeiros",
       "termosNoRSS": 10,
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-19T21:13:19.279Z"
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-20T07:41:21.532Z"
     },
     {
       "uf": "DF",
       "status": "com_termos_financeiros",
       "termosNoRSS": 10,
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-19T21:13:19.527Z"
+      "consultadoEm": "2026-11-20T07:41:22.248Z"
     },
     {
       "uf": "ES",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:19.547Z"
+      "consultadoEm": "2026-11-20T07:41:21.925Z"
     },
     {
       "uf": "GO",
       "status": "com_termos_financeiros",
       "termosNoRSS": 10,
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-19T21:13:19.506Z"
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-20T07:41:21.948Z"
     },
     {
       "uf": "MA",
       "status": "com_termos_financeiros",
       "termosNoRSS": 10,
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-19T21:13:19.771Z"
+      "consultadoEm": "2026-11-20T07:41:22.374Z"
     },
     {
       "uf": "MT",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:19.845Z"
+      "consultadoEm": "2026-11-20T07:41:22.350Z"
     },
     {
       "uf": "MS",
       "status": "com_termos_financeiros",
       "termosNoRSS": 10,
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-19T21:13:19.636Z"
+      "consultadoEm": "2026-11-20T07:41:22.352Z"
     },
     {
       "uf": "MG",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:20.039Z"
+      "consultadoEm": "2026-11-20T07:41:22.651Z"
     },
     {
       "uf": "PA",
-      "status": "sem_tendencia_financeira",
+      "status": "com_termos_financeiros",
       "termosNoRSS": 10,
-      "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:19.944Z"
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-20T07:41:22.670Z"
     },
     {
       "uf": "PB",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 10,
+      "termosNoRSS": 8,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:20.023Z"
+      "consultadoEm": "2026-11-20T07:41:22.618Z"
     },
     {
       "uf": "PR",
-      "status": "com_termos_financeiros",
+      "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
-      "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-19T21:13:20.254Z"
+      "termosFinanceiros": 0,
+      "consultadoEm": "2026-11-20T07:41:23.003Z"
     },
     {
       "uf": "PE",
       "status": "com_termos_financeiros",
       "termosNoRSS": 10,
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-19T21:13:20.367Z"
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-20T07:41:22.777Z"
     },
     {
       "uf": "PI",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 10,
+      "termosNoRSS": 6,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:20.143Z"
+      "consultadoEm": "2026-11-20T07:41:22.774Z"
     },
     {
       "uf": "RJ",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:20.636Z"
+      "consultadoEm": "2026-11-20T07:41:23.145Z"
     },
     {
       "uf": "RN",
       "status": "com_termos_financeiros",
-      "termosNoRSS": 10,
+      "termosNoRSS": 9,
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-19T21:13:20.449Z"
+      "consultadoEm": "2026-11-20T07:41:23.092Z"
     },
     {
       "uf": "RS",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:20.474Z"
+      "consultadoEm": "2026-11-20T07:41:23.145Z"
     },
     {
       "uf": "RO",
-      "status": "sem_tendencia_financeira",
-      "termosNoRSS": 9,
-      "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:20.739Z"
+      "status": "com_termos_financeiros",
+      "termosNoRSS": 5,
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-20T07:41:23.239Z"
     },
     {
       "uf": "RR",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 7,
+      "termosNoRSS": 3,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:20.944Z"
+      "consultadoEm": "2026-11-20T07:41:23.217Z"
     },
     {
       "uf": "SC",
-      "status": "com_termos_financeiros",
-      "termosNoRSS": 10,
-      "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-19T21:13:20.860Z"
-    },
-    {
-      "uf": "SP",
-      "status": "com_termos_financeiros",
-      "termosNoRSS": 10,
-      "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-19T21:13:21.207Z"
-    },
-    {
-      "uf": "SE",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:21.086Z"
+      "consultadoEm": "2026-11-20T07:41:23.273Z"
+    },
+    {
+      "uf": "SP",
+      "status": "sem_tendencia_financeira",
+      "termosNoRSS": 10,
+      "termosFinanceiros": 0,
+      "consultadoEm": "2026-11-20T07:41:23.626Z"
+    },
+    {
+      "uf": "SE",
+      "status": "com_termos_financeiros",
+      "termosNoRSS": 9,
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-20T07:41:23.357Z"
     },
     {
       "uf": "TO",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 9,
+      "termosNoRSS": 4,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-19T21:13:21.200Z"
+      "consultadoEm": "2026-11-20T07:41:23.349Z"
     }
   ],
   "registros": [
     {
-      "uf": "AM",
+      "uf": "AL",
       "termo": "dolar hoje",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T11:40:00.000Z",
-      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-AM",
-      "geoConsultado": "BR-AM",
+      "dataFonte": "2026-11-19T21:30:00.000Z",
+      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-AL",
+      "geoConsultado": "BR-AL",
       "interesse": "em_destaque"
     },
     {
       "uf": "CE",
-      "termo": "banco do brasil vazamento de dados",
+      "termo": "dolar",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T10:30:00.000Z",
-      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-CE",
-      "geoConsultado": "BR-CE",
-      "interesse": "em_destaque"
-    },
-    {
-      "uf": "CE",
-      "termo": "dolar hoje",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T14:50:00.000Z",
+      "dataFonte": "2026-11-19T20:20:00.000Z",
       "urlFonte": "https://trends.google.com/trending/rss?geo=BR-CE",
       "geoConsultado": "BR-CE",
       "interesse": "em_destaque"
@@ -245,30 +235,20 @@
     },
     {
       "uf": "GO",
-      "termo": "banco do brasil vazamento de dados",
+      "termo": "dolar",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T10:00:00.000Z",
-      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-GO",
-      "geoConsultado": "BR-GO",
-      "interesse": "em_destaque"
-    },
-    {
-      "uf": "GO",
-      "termo": "dolar hoje",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T20:40:00.000Z",
+      "dataFonte": "2026-11-19T16:20:00.000Z",
       "urlFonte": "https://trends.google.com/trending/rss?geo=BR-GO",
       "geoConsultado": "BR-GO",
       "interesse": "em_destaque"
     },
     {
       "uf": "MA",
-      "termo": "dolar",
+      "termo": "dolar hoje",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T20:40:00.000Z",
+      "dataFonte": "2026-11-19T21:10:00.000Z",
       "urlFonte": "https://trends.google.com/trending/rss?geo=BR-MA",
       "geoConsultado": "BR-MA",
       "interesse": "em_destaque"
@@ -284,33 +264,23 @@
       "interesse": "em_destaque"
     },
     {
-      "uf": "PE",
-      "termo": "banco do brasil vazamento de dados",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T09:20:00.000Z",
-      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-PE",
-      "geoConsultado": "BR-PE",
-      "interesse": "em_destaque"
-    },
-    {
-      "uf": "PE",
-      "termo": "dolar hoje",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T15:50:00.000Z",
-      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-PE",
-      "geoConsultado": "BR-PE",
-      "interesse": "em_destaque"
-    },
-    {
-      "uf": "PR",
+      "uf": "PA",
       "termo": "dolar",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T15:30:00.000Z",
-      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-PR",
-      "geoConsultado": "BR-PR",
+      "dataFonte": "2026-11-19T23:40:00.000Z",
+      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-PA",
+      "geoConsultado": "BR-PA",
+      "interesse": "em_destaque"
+    },
+    {
+      "uf": "PE",
+      "termo": "dolar",
+      "fonte": "Google Trends Trending Now",
+      "escopo": "tendencia_descoberta_na_uf",
+      "dataFonte": "2026-11-19T20:30:00.000Z",
+      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-PE",
+      "geoConsultado": "BR-PE",
       "interesse": "em_destaque"
     },
     {
@@ -324,23 +294,23 @@
       "interesse": "em_destaque"
     },
     {
-      "uf": "SC",
-      "termo": "dolar",
+      "uf": "RO",
+      "termo": "dolar hoje",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T17:00:00.000Z",
-      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-SC",
-      "geoConsultado": "BR-SC",
+      "dataFonte": "2026-11-19T21:40:00.000Z",
+      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-RO",
+      "geoConsultado": "BR-RO",
       "interesse": "em_destaque"
     },
     {
-      "uf": "SP",
-      "termo": "dólar hoje",
+      "uf": "SE",
+      "termo": "dolar",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-19T20:30:00.000Z",
-      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-SP",
-      "geoConsultado": "BR-SP",
+      "dataFonte": "2026-11-19T22:30:00.000Z",
+      "urlFonte": "https://trends.google.com/trending/rss?geo=BR-SE",
+      "geoConsultado": "BR-SE",
       "interesse": "em_destaque"
     }
   ],
