@@ -1,11 +1,11 @@
 {
   "status": "ok",
-  "versaoDados": "aee022b7906165c5",
-  "ultimaVerificacao": "2026-11-20T07:41:23.640Z",
+  "versaoDados": "9492a49896e5a527",
+  "ultimaVerificacao": "2026-11-20T20:40:31.801Z",
   "origemExtracao": "google_trends_rss_regional",
   "escopoTermos": "descoberta_estadual_por_geo",
   "ufConsultadas": 27,
   "ufRespondidas": 27,
-  "ufComTermosFinanceiros": 11,
-  "totalRegistros": 11
+  "ufComTermosFinanceiros": 2,
+  "totalRegistros": 2
 }
