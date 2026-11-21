@@ -1,20 +1,21 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "versaoDados": "6e08857ed07e79bd",
-  "geradoEm": "2026-11-20T22:15:20.980Z",
+  "versaoDados": "ddf671dc628e070e",
+  "geradoEm": "2026-11-21T20:54:50.643Z",
   "origemExtracao": "bigquery_live",
   "fonteOficial": "Google Trends Public Dataset no BigQuery",
   "modo": "dados_reais_parciais",
   "semanaInicio": "2026-11-15",
   "semanaFim": "2026-11-21",
   "ufsComDados": 27,
-  "termosComDados": 9,
-  "totalRegistros": 243,
+  "termosComDados": 10,
+  "totalRegistros": 270,
   "descoberta": "termos_reais_com_classificacao_financeira",
   "classificacao": "regras_de_dominio_v1",
   "escopoTermos": "destaques_nacionais_com_series_por_uf",
   "termos": [
+    "banco do brasil vazamento de dados",
     "bitcoin hoje",
     "bolsa de valores",
     "bolsa de valores hoje",
@@ -33,6 +34,357 @@
     "cpc": "Não informado por esta fonte."
   },
   "registros": [
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "AC",
+      "estado": "State of Acre",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "AL",
+      "estado": "State of Alagoas",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "AM",
+      "estado": "State of Amazonas",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "AP",
+      "estado": "State of Amapá",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "BA",
+      "estado": "State of Bahia",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "CE",
+      "estado": "State of Ceará",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "DF",
+      "estado": "Federal District",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "ES",
+      "estado": "State of Espírito Santo",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "GO",
+      "estado": "State of Goiás",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "MA",
+      "estado": "State of Maranhão",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "MG",
+      "estado": "State of Minas Gerais",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "MS",
+      "estado": "State of Mato Grosso do Sul",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "MT",
+      "estado": "State of Mato Grosso",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "PA",
+      "estado": "State of Pará",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "PB",
+      "estado": "State of Paraíba",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "PE",
+      "estado": "State of Pernambuco",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "PI",
+      "estado": "State of Piauí",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "PR",
+      "estado": "State of Paraná",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "RJ",
+      "estado": "State of Rio de Janeiro",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "RN",
+      "estado": "State of Rio Grande do Norte",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "RO",
+      "estado": "State of Rondônia",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "RR",
+      "estado": "State of Roraima",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "RS",
+      "estado": "State of Rio Grande do Sul",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "SC",
+      "estado": "State of Santa Catarina",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "SE",
+      "estado": "State of Sergipe",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "SP",
+      "estado": "State of São Paulo",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
+    {
+      "fonte": "Mais buscados",
+      "termo": "banco do brasil vazamento de dados",
+      "uf": "TO",
+      "estado": "State of Tocantins",
+      "semana": "2026-11-15",
+      "dataFonte": "2026-11-18",
+      "rankNacionalTop25": 10,
+      "indiceAnterior": null,
+      "indiceAtual": 100,
+      "variacaoPontos": null,
+      "tendencia": "Sem comparação"
+    },
     {
       "fonte": "Mais buscados",
       "termo": "bitcoin hoje",
@@ -1147,7 +1499,7 @@
       "estado": "State of Acre",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 31,
       "indiceAtual": 22,
       "variacaoPontos": -9,
@@ -1160,7 +1512,7 @@
       "estado": "State of Alagoas",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 50,
       "indiceAtual": 54,
       "variacaoPontos": 4,
@@ -1173,7 +1525,7 @@
       "estado": "State of Amazonas",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 40,
       "indiceAtual": 61,
       "variacaoPontos": 21,
@@ -1186,7 +1538,7 @@
       "estado": "State of Amapá",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 34,
       "indiceAtual": 24,
       "variacaoPontos": -10,
@@ -1199,7 +1551,7 @@
       "estado": "State of Bahia",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 61,
       "indiceAtual": 75,
       "variacaoPontos": 14,
@@ -1212,7 +1564,7 @@
       "estado": "State of Ceará",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 54,
       "indiceAtual": 70,
       "variacaoPontos": 16,
@@ -1225,7 +1577,7 @@
       "estado": "Federal District",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 55,
       "indiceAtual": 65,
       "variacaoPontos": 10,
@@ -1238,7 +1590,7 @@
       "estado": "State of Espírito Santo",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 40,
       "indiceAtual": 52,
       "variacaoPontos": 12,
@@ -1251,7 +1603,7 @@
       "estado": "State of Goiás",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 48,
       "indiceAtual": 64,
       "variacaoPontos": 16,
@@ -1264,7 +1616,7 @@
       "estado": "State of Maranhão",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 70,
       "indiceAtual": 74,
       "variacaoPontos": 4,
@@ -1277,7 +1629,7 @@
       "estado": "State of Minas Gerais",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 47,
       "indiceAtual": 60,
       "variacaoPontos": 13,
@@ -1290,7 +1642,7 @@
       "estado": "State of Mato Grosso do Sul",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 50,
       "indiceAtual": 69,
       "variacaoPontos": 19,
@@ -1303,7 +1655,7 @@
       "estado": "State of Mato Grosso",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 41,
       "indiceAtual": 57,
       "variacaoPontos": 16,
@@ -1316,7 +1668,7 @@
       "estado": "State of Pará",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 56,
       "indiceAtual": 68,
       "variacaoPontos": 12,
@@ -1329,7 +1681,7 @@
       "estado": "State of Paraíba",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 64,
       "indiceAtual": 70,
       "variacaoPontos": 6,
@@ -1342,7 +1694,7 @@
       "estado": "State of Pernambuco",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 57,
       "indiceAtual": 59,
       "variacaoPontos": 2,
@@ -1355,7 +1707,7 @@
       "estado": "State of Piauí",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 61,
       "indiceAtual": 63,
       "variacaoPontos": 2,
@@ -1368,7 +1720,7 @@
       "estado": "State of Paraná",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 55,
       "indiceAtual": 61,
       "variacaoPontos": 6,
@@ -1381,7 +1733,7 @@
       "estado": "State of Rio de Janeiro",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 52,
       "indiceAtual": 69,
       "variacaoPontos": 17,
@@ -1394,7 +1746,7 @@
       "estado": "State of Rio Grande do Norte",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 66,
       "indiceAtual": 90,
       "variacaoPontos": 24,
@@ -1407,7 +1759,7 @@
       "estado": "State of Rondônia",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 35,
       "indiceAtual": 53,
       "variacaoPontos": 18,
@@ -1420,7 +1772,7 @@
       "estado": "State of Roraima",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 29,
       "indiceAtual": 32,
       "variacaoPontos": 3,
@@ -1433,7 +1785,7 @@
       "estado": "State of Rio Grande do Sul",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 40,
       "indiceAtual": 56,
       "variacaoPontos": 16,
@@ -1446,7 +1798,7 @@
       "estado": "State of Santa Catarina",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 44,
       "indiceAtual": 56,
       "variacaoPontos": 12,
@@ -1459,7 +1811,7 @@
       "estado": "State of Sergipe",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 41,
       "indiceAtual": 54,
       "variacaoPontos": 13,
@@ -1472,7 +1824,7 @@
       "estado": "State of São Paulo",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 50,
       "indiceAtual": 62,
       "variacaoPontos": 12,
@@ -1485,7 +1837,7 @@
       "estado": "State of Tocantins",
       "semana": "2026-11-15",
       "dataFonte": "2026-11-16",
-      "rankNacionalTop25": 3,
+      "rankNacionalTop25": 7,
       "indiceAnterior": 50,
       "indiceAtual": 57,
       "variacaoPontos": 7,
@@ -2232,7 +2584,7 @@
       "indiceAtual": 25,
       "variacaoPontos": -5,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2246,7 +2598,7 @@
       "indiceAtual": 25,
       "variacaoPontos": -5,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2260,7 +2612,7 @@
       "indiceAtual": 29,
       "variacaoPontos": -1,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2274,7 +2626,7 @@
       "indiceAtual": 23,
       "variacaoPontos": -8,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2288,7 +2640,7 @@
       "indiceAtual": 29,
       "variacaoPontos": -2,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2302,7 +2654,7 @@
       "indiceAtual": 27,
       "variacaoPontos": -2,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2316,7 +2668,7 @@
       "indiceAtual": 23,
       "variacaoPontos": -6,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2330,7 +2682,7 @@
       "indiceAtual": 22,
       "variacaoPontos": -2,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2344,7 +2696,7 @@
       "indiceAtual": 23,
       "variacaoPontos": -3,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2358,7 +2710,7 @@
       "indiceAtual": 28,
       "variacaoPontos": -1,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2372,7 +2724,7 @@
       "indiceAtual": 23,
       "variacaoPontos": -5,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2386,7 +2738,7 @@
       "indiceAtual": 21,
       "variacaoPontos": -3,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2400,7 +2752,7 @@
       "indiceAtual": 23,
       "variacaoPontos": -3,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2414,7 +2766,7 @@
       "indiceAtual": 29,
       "variacaoPontos": -3,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2428,7 +2780,7 @@
       "indiceAtual": 25,
       "variacaoPontos": -2,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2442,7 +2794,7 @@
       "indiceAtual": 28,
       "variacaoPontos": -4,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2456,7 +2808,7 @@
       "indiceAtual": 30,
       "variacaoPontos": -6,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2470,7 +2822,7 @@
       "indiceAtual": 22,
       "variacaoPontos": -3,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2484,7 +2836,7 @@
       "indiceAtual": 28,
       "variacaoPontos": -4,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2498,7 +2850,7 @@
       "indiceAtual": 28,
       "variacaoPontos": -4,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2512,7 +2864,7 @@
       "indiceAtual": 22,
       "variacaoPontos": -6,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2526,7 +2878,7 @@
       "indiceAtual": 27,
       "variacaoPontos": -6,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2540,7 +2892,7 @@
       "indiceAtual": 23,
       "variacaoPontos": -5,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2554,7 +2906,7 @@
       "indiceAtual": 24,
       "variacaoPontos": -4,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2568,7 +2920,7 @@
       "indiceAtual": 30,
       "variacaoPontos": -1,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2582,7 +2934,7 @@
       "indiceAtual": 25,
       "variacaoPontos": -5,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
@@ -2596,7 +2948,7 @@
       "indiceAtual": 16,
       "variacaoPontos": -5,
       "tendencia": "Em queda",
-      "ganhoPercentualFonte": 550
+      "ganhoPercentualFonte": 500
     },
     {
       "fonte": "Em ascensão",
