@@ -4,13 +4,13 @@ import { isFinancialSearch, normalizeTopic } from "./finance-relevance.mjs";
 
 // Auditoria somente leitura: recupera títulos RSS originais, sem usar o feed derivado.
 function getTitles(xml) {
-  if (!/<rss(?:\\s|>)/i.test(xml)) throw new Error("Não é RSS válido");
-  const items = [...xml.matchAll(/<item(?:\\s[^>]*)?>([\\s\\S]*?)<\\/item>/gi)];
+  if (!/<rss(?:\s|>)/i.test(xml)) throw new Error("Não é RSS válido");
+  const items = [...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi)];
   const results = [];
   for (const [, item] of items) {
-    const title = /<title>([\\s\\S]*?)<\\/title>/i.exec(item)?.[1] ?? "";
-    const date = /<pubDate>([\\s\\S]*?)<\\/pubDate>/i.exec(item)?.[1] ?? "";
-    const clean = title.replace(/<!\\[CDATA\\[|\\]\\]>/g, "").trim();
+    const title = /<title>([\s\S]*?)<\/title>/i.exec(item)?.[1] ?? "";
+    const date = /<pubDate>([\s\S]*?)<\/pubDate>/i.exec(item)?.[1] ?? "";
+    const clean = title.replace(/<!\[CDATA\[|\]\]>/g, "").trim();
     if (clean) results.push({ title: clean, key: normalizeTopic(clean), date: date.trim() });
   }
   return results;
