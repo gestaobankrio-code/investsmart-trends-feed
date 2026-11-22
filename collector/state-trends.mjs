@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
-import { isFinancialSearch } from "./finance-relevance.mjs";
+import { isFinancialSearch, normalizeTopic } from "./finance-relevance.mjs";
 
 export const UFS = [
   "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS",
@@ -33,10 +33,14 @@ export function parseStateRSS(xml, uf) {
   const items = [...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi)];
   const result = [];
   const seen = new Set();
+  const titlesFromSource = [];
   for (const [, block] of items) {
     const termo = decodeXML(getTag(block, "title"));
-    if (!termo || termo.length > 150 || !isFinancialSearch(termo)) continue;
-    const key = termo.toLocaleLowerCase("pt-BR");
+    if (!termo) continue;
+    const key = normalizeTopic(termo);
+    const rawDate = decodeXML(getTag(block, "pubDate"));
+    titlesFromSource.push([key, rawDate]);
+    if (termo.length > 150 || !isFinancialSearch(termo)) continue;
     if (seen.has(key)) continue;
     seen.add(key);
     const rawLink = decodeXML(getTag(block, "link"));
@@ -45,7 +49,6 @@ export function parseStateRSS(xml, uf) {
       const u = new URL(rawLink);
       if (u.protocol === "https:" && u.hostname === "trends.google.com") urlFonte = u.href;
     } catch { /* A URL da consulta da UF permanece disponível no registro. */ }
-    const rawDate = decodeXML(getTag(block, "pubDate"));
     const millis = Date.parse(rawDate);
     const dataFonte = Number.isFinite(millis) ? new Date(millis).toISOString() : null;
     result.push({
@@ -59,7 +62,10 @@ export function parseStateRSS(xml, uf) {
       interesse: "em_destaque",
     });
   }
-  return { totalRSS: items.length, registros: result };
+  const assinaturaRss = createHash("sha256")
+    .update(JSON.stringify(titlesFromSource.sort((a, b) => a[0].localeCompare(b[0]))))
+    .digest("hex").slice(0, 16);
+  return { totalRSS: items.length, assinaturaRss, registros: result };
 }
 
 async function fetchUF(uf) {
@@ -80,11 +86,13 @@ async function fetchUF(uf) {
     }
     const body = await res.text();
     const parsed = parseStateRSS(body, uf);
+    if (!parsed.totalRSS) throw new Error("RSS sem itens de tendências; não confundir com zero interesse financeiro");
     return {
       cobertura: {
         uf,
-        status: parsed.registros.length ? "com_termos_financeiros" : "sem_tendencia_financeira",
+        status: parsed.registros.length ? "com_termos_financeiros" : "sem_termos_financeiros_no_recorte",
         termosNoRSS: parsed.totalRSS,
+        assinaturaRss: parsed.assinaturaRss,
         termosFinanceiros: parsed.registros.length,
         consultadoEm: new Date().toISOString(),
       },
@@ -116,12 +124,26 @@ export async function collectStateTrends() {
   );
   const cobertura = all.map((r) => r.cobertura);
   const geradoEm = new Date().toISOString();
+  // Um RSS idêntico em massa entre UFs é suspeito, mesmo com geo=BR-UF na URL.
+  // Repetições de uma palavra isolada entre estados continuam válidas.
+  const geoCounts = new Map();
+  for (const row of cobertura.filter((x) => x.status !== "falha_consulta")) {
+    const signature = row.assinaturaRss;
+    geoCounts.set(signature, (geoCounts.get(signature) ?? 0) + 1);
+  }
+  const maxIdenticalRSS = Math.max(0, ...geoCounts.values());
+  if (maxIdenticalRSS >= Math.ceil(success * 0.85)) {
+    throw new Error("Respostas RSS praticamente idênticas entre UFs: bloqueada publicação sem comprovação geográfica.");
+  }
+  const feedStatus = registros.length === 0
+    ? "sem_dados_financeiros"
+    : success === 27 ? "ok" : "parcial";
   const versaoDados = createHash("sha256")
-    .update(JSON.stringify({ cobertura: cobertura.map(({ uf, status }) => ({ uf, status })), registros }))
+    .update(JSON.stringify({ cobertura: cobertura.map(({ uf, status, assinaturaRss }) => ({ uf, status, assinaturaRss })), registros }))
     .digest("hex").slice(0, 16);
   const feed = {
     schemaVersion: 1,
-    status: success === 27 ? "ok" : "parcial",
+    status: feedStatus,
     versaoDados, geradoEm,
     origemExtracao: "google_trends_rss_regional",
     fonteOficial: "Google Trends Trending Now RSS",
@@ -131,11 +153,13 @@ export async function collectStateTrends() {
     ufRespondidas: success,
     ufComTermosFinanceiros: cobertura.filter((c) => c.status === "com_termos_financeiros").length,
     totalRegistros: registros.length,
+    diagnosticoGeografico: { assinaturasRssDistintas: geoCounts.size, maiorGrupoRssIdentico: maxIdenticalRSS },
+    disponibilidadeFinanceira: registros.length ? "com_resultados" : "sem_termos_no_recorte",
     cobertura, registros,
     metodologia: {
       selecao: "Cada solicitação consulta geo=BR-UF; apenas os termos devolvidos naquela UF entram no feed estadual.",
       classificacao: "Somente assuntos com pertinência financeira verificada por regras temáticas; nenhuma palavra de resultado é pré-cadastrada.",
-      ausencia: "Sem termo financeiro no RSS não significa ausência de buscas financeiras no estado.",
+      ausencia: "Cada RSS apresenta cerca de 10 destaques; zero termos financeiros classificados não comprova ausência de pesquisas financeiras na UF.",
       temperatura: "O RSS não fornece série temporal comparável; nenhuma temperatura Quente/Morno/Frio é inventada.",
     },
   };
@@ -145,6 +169,8 @@ export async function collectStateTrends() {
     ufConsultadas: feed.ufConsultadas, ufRespondidas: success,
     ufComTermosFinanceiros: feed.ufComTermosFinanceiros,
     totalRegistros: registros.length,
+    disponibilidadeFinanceira: feed.disponibilidadeFinanceira,
+    diagnosticoGeografico: feed.diagnosticoGeografico,
   };
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, JSON.stringify(feed, null, 2) + "\n");
