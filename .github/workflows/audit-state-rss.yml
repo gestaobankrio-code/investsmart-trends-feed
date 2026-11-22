@@ -6,6 +6,8 @@ on:
       - "collector/audit-state-rss.mjs"
       - ".github/workflows/audit-state-rss.yml"
   workflow_dispatch:
+  schedule:
+    - cron: "15 9 * * *"
 permissions:
   contents: read
 jobs:
