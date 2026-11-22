@@ -66,4 +66,20 @@ console.log("AUDIT_SUMMARY "+JSON.stringify({
   identicalPairs:pairwise.filter(p=>p.identical).length,
   zeroFinanceStates:valid.filter(x=>x.geo.startsWith("BR-") && x.finance.length===0).length,
 }));
-if (valid.length < 27) process.exitCode=1;
+const stateFeeds = valid.filter(x => x.geo.startsWith("BR-"));
+const bySignature = new Map();
+for (const state of stateFeeds) bySignature.set(state.hash, (bySignature.get(state.hash) ?? 0) + 1);
+const largestIdenticalGroup = Math.max(0, ...bySignature.values());
+console.log("GEO_INTEGRITY " + JSON.stringify({
+  expectedStates: 27, respondedStates: stateFeeds.length,
+  distinctStateSignatures: bySignature.size,
+  largestIdenticalGroup,
+  repeatedSingleTermsAreExpected: true,
+}));
+if (valid.length < geos.length || largestIdenticalGroup >= Math.ceil(stateFeeds.length * 0.85)) {
+  console.error("Falha na auditoria: respostas indisponíveis ou listas estaduais essencialmente idênticas.");
+  process.exitCode = 1;
+}
+if (stateFeeds.length === 27 && stateFeeds.every(x => x.finance.length === 0)) {
+  console.warn("Aviso: o recorte de RSS das 27 UFs não contém termos aprovados pelo filtro financeiro. Não publicar status financeiro OK.");
+}
