@@ -45,6 +45,14 @@
 - O Google Trends descreve as tendências por país/região e permite RSS: https://support.google.com/trends/answer/3076011?hl=pt-br
 - Interesse relativo por região não é volume absoluto de buscas: https://support.google.com/trends/answer/4355212?hl=pt-br
 
+### 5. O feed nacional rotulava dados históricos como atuais
+
+Na verificação de 22/11/2026, o feed nacional tinha 270 linhas (10 termos × 27 UFs); apenas 108 registros possuíam data de origem de 16–18/11. Outros **162 registros (60%)** datavam de 28/10, 30/10, 04/11 ou 11/11.
+
+**Correção aplicada:** o aplicativo passa a classificar como *Histórico* todo sinal cujo último registro tenha mais de sete dias. A temperatura *Quente/Morno/Frio* só é mostrada em registros mais recentes, e a página alerta quando o feed contém séries históricas. Isso não apaga dados reais antigos, mas evita confundi-los com tendência atual.
+
+**Nota:** o indicador global de atualização informa a idade da data mais recente da fonte, não a idade de todos os termos individualmente. Para leitura crítica, a data por termo é indispensável.
+
 ## Controles
 
 1. Auditoria de RSS geográfico automatizada diariamente às 09:15 UTC: `.github/workflows/audit-state-rss.yml`.
