@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "status": "ok",
-  "versaoDados": "9fc870e9075e75c5",
-  "geradoEm": "2026-11-22T19:56:03.199Z",
+  "status": "sem_dados_financeiros",
+  "versaoDados": "9c6f55a000cdeabd",
+  "geradoEm": "2026-11-22T23:50:18.056Z",
   "origemExtracao": "google_trends_rss_regional",
   "fonteOficial": "Google Trends Trending Now RSS",
   "escopoTermos": "descoberta_estadual_por_geo",
@@ -11,202 +11,234 @@
   "ufRespondidas": 27,
   "ufComTermosFinanceiros": 0,
   "totalRegistros": 0,
+  "diagnosticoGeografico": {
+    "assinaturasRssDistintas": 27,
+    "maiorGrupoRssIdentico": 1
+  },
+  "disponibilidadeFinanceira": "sem_termos_no_recorte",
   "cobertura": [
     {
       "uf": "AC",
-      "status": "sem_tendencia_financeira",
-      "termosNoRSS": 9,
+      "status": "sem_termos_financeiros_no_recorte",
+      "termosNoRSS": 8,
+      "assinaturaRss": "5f420082ceaedb51",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:55:59.714Z"
+      "consultadoEm": "2026-11-22T23:50:16.346Z"
     },
     {
       "uf": "AL",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "0682f94f1a4ec9b4",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:55:59.544Z"
+      "consultadoEm": "2026-11-22T23:50:16.116Z"
     },
     {
       "uf": "AP",
-      "status": "sem_tendencia_financeira",
-      "termosNoRSS": 10,
+      "status": "sem_termos_financeiros_no_recorte",
+      "termosNoRSS": 7,
+      "assinaturaRss": "7788e1f88c37c9df",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:55:59.613Z"
+      "consultadoEm": "2026-11-22T23:50:16.061Z"
     },
     {
       "uf": "AM",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "4d6166b7a8c5b064",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.258Z"
+      "consultadoEm": "2026-11-22T23:50:16.430Z"
     },
     {
       "uf": "BA",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "d9954bc07a03026e",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.050Z"
+      "consultadoEm": "2026-11-22T23:50:16.455Z"
     },
     {
       "uf": "CE",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "2d353abcde6b31a4",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.038Z"
+      "consultadoEm": "2026-11-22T23:50:16.518Z"
     },
     {
       "uf": "DF",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "5c1e348cbfe36720",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.665Z"
+      "consultadoEm": "2026-11-22T23:50:16.615Z"
     },
     {
       "uf": "ES",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "603a41ba80451b1e",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.655Z"
+      "consultadoEm": "2026-11-22T23:50:16.596Z"
     },
     {
       "uf": "GO",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "139da98e77c033c5",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.671Z"
+      "consultadoEm": "2026-11-22T23:50:16.626Z"
     },
     {
       "uf": "MA",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "66568ab55500309f",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.993Z"
+      "consultadoEm": "2026-11-22T23:50:16.759Z"
     },
     {
       "uf": "MT",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "f4fdde63d7135335",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.859Z"
+      "consultadoEm": "2026-11-22T23:50:16.734Z"
     },
     {
       "uf": "MS",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "cf4b2abddc11fb28",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:00.998Z"
+      "consultadoEm": "2026-11-22T23:50:16.919Z"
     },
     {
       "uf": "MG",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "6dbf3bf583f66070",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:01.492Z"
+      "consultadoEm": "2026-11-22T23:50:17.016Z"
     },
     {
       "uf": "PA",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "0f51ba8a2767db30",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:01.279Z"
+      "consultadoEm": "2026-11-22T23:50:17.235Z"
     },
     {
       "uf": "PB",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "499cf080beff1237",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:01.325Z"
+      "consultadoEm": "2026-11-22T23:50:17.001Z"
     },
     {
       "uf": "PR",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "7c56b8ccf5e29c95",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:02.001Z"
+      "consultadoEm": "2026-11-22T23:50:17.349Z"
     },
     {
       "uf": "PE",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "05ea3b7aa86347fe",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:01.835Z"
+      "consultadoEm": "2026-11-22T23:50:17.348Z"
     },
     {
       "uf": "PI",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "18b5ffb44439f523",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:01.682Z"
+      "consultadoEm": "2026-11-22T23:50:17.477Z"
     },
     {
       "uf": "RJ",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "3158f60501828d76",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:02.426Z"
+      "consultadoEm": "2026-11-22T23:50:17.590Z"
     },
     {
       "uf": "RN",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "8c1ee5a15a534c6f",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:02.354Z"
+      "consultadoEm": "2026-11-22T23:50:17.553Z"
     },
     {
       "uf": "RS",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "5c756c32d3faba63",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:02.406Z"
+      "consultadoEm": "2026-11-22T23:50:17.585Z"
     },
     {
       "uf": "RO",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "3f181755c892c5be",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:02.729Z"
+      "consultadoEm": "2026-11-22T23:50:17.827Z"
     },
     {
       "uf": "RR",
-      "status": "sem_tendencia_financeira",
-      "termosNoRSS": 10,
+      "status": "sem_termos_financeiros_no_recorte",
+      "termosNoRSS": 7,
+      "assinaturaRss": "98c87577335a105b",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:02.763Z"
+      "consultadoEm": "2026-11-22T23:50:17.668Z"
     },
     {
       "uf": "SC",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "fc40363d70b0fe77",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:02.710Z"
+      "consultadoEm": "2026-11-22T23:50:17.805Z"
     },
     {
       "uf": "SP",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "1801bd48e30aa32c",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:03.183Z"
+      "consultadoEm": "2026-11-22T23:50:18.056Z"
     },
     {
       "uf": "SE",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "4eccac45646bb076",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:03.110Z"
+      "consultadoEm": "2026-11-22T23:50:17.916Z"
     },
     {
       "uf": "TO",
-      "status": "sem_tendencia_financeira",
+      "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
+      "assinaturaRss": "1569cee8db8b3c3c",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T19:56:03.199Z"
+      "consultadoEm": "2026-11-22T23:50:17.936Z"
     }
   ],
   "registros": [],
   "metodologia": {
     "selecao": "Cada solicitação consulta geo=BR-UF; apenas os termos devolvidos naquela UF entram no feed estadual.",
     "classificacao": "Somente assuntos com pertinência financeira verificada por regras temáticas; nenhuma palavra de resultado é pré-cadastrada.",
-    "ausencia": "Sem termo financeiro no RSS não significa ausência de buscas financeiras no estado.",
+    "ausencia": "Cada RSS apresenta cerca de 10 destaques; zero termos financeiros classificados não comprova ausência de pesquisas financeiras na UF.",
     "temperatura": "O RSS não fornece série temporal comparável; nenhuma temperatura Quente/Morno/Frio é inventada."
   }
 }

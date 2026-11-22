@@ -1,11 +1,16 @@
 {
-  "status": "ok",
-  "versaoDados": "9fc870e9075e75c5",
-  "ultimaVerificacao": "2026-11-22T19:56:03.199Z",
+  "status": "sem_dados_financeiros",
+  "versaoDados": "9c6f55a000cdeabd",
+  "ultimaVerificacao": "2026-11-22T23:50:18.056Z",
   "origemExtracao": "google_trends_rss_regional",
   "escopoTermos": "descoberta_estadual_por_geo",
   "ufConsultadas": 27,
   "ufRespondidas": 27,
   "ufComTermosFinanceiros": 0,
-  "totalRegistros": 0
+  "totalRegistros": 0,
+  "disponibilidadeFinanceira": "sem_termos_no_recorte",
+  "diagnosticoGeografico": {
+    "assinaturasRssDistintas": 27,
+    "maiorGrupoRssIdentico": 1
+  }
 }
