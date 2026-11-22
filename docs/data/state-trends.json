@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "sem_dados_financeiros",
-  "versaoDados": "9c6f55a000cdeabd",
-  "geradoEm": "2026-11-22T23:50:18.056Z",
+  "versaoDados": "a12cf3d82b2d719e",
+  "geradoEm": "2026-11-22T23:53:26.069Z",
   "origemExtracao": "google_trends_rss_regional",
   "fonteOficial": "Google Trends Trending Now RSS",
   "escopoTermos": "descoberta_estadual_por_geo",
@@ -20,10 +20,10 @@
     {
       "uf": "AC",
       "status": "sem_termos_financeiros_no_recorte",
-      "termosNoRSS": 8,
-      "assinaturaRss": "5f420082ceaedb51",
+      "termosNoRSS": 6,
+      "assinaturaRss": "b2ca44e2edbecb9c",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.346Z"
+      "consultadoEm": "2026-11-22T23:53:24.063Z"
     },
     {
       "uf": "AL",
@@ -31,7 +31,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "0682f94f1a4ec9b4",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.116Z"
+      "consultadoEm": "2026-11-22T23:53:24.215Z"
     },
     {
       "uf": "AP",
@@ -39,7 +39,7 @@
       "termosNoRSS": 7,
       "assinaturaRss": "7788e1f88c37c9df",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.061Z"
+      "consultadoEm": "2026-11-22T23:53:24.062Z"
     },
     {
       "uf": "AM",
@@ -47,7 +47,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "4d6166b7a8c5b064",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.430Z"
+      "consultadoEm": "2026-11-22T23:53:24.308Z"
     },
     {
       "uf": "BA",
@@ -55,7 +55,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "d9954bc07a03026e",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.455Z"
+      "consultadoEm": "2026-11-22T23:53:24.315Z"
     },
     {
       "uf": "CE",
@@ -63,7 +63,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "2d353abcde6b31a4",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.518Z"
+      "consultadoEm": "2026-11-22T23:53:24.320Z"
     },
     {
       "uf": "DF",
@@ -71,7 +71,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "5c1e348cbfe36720",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.615Z"
+      "consultadoEm": "2026-11-22T23:53:24.420Z"
     },
     {
       "uf": "ES",
@@ -79,7 +79,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "603a41ba80451b1e",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.596Z"
+      "consultadoEm": "2026-11-22T23:53:24.471Z"
     },
     {
       "uf": "GO",
@@ -87,7 +87,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "139da98e77c033c5",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.626Z"
+      "consultadoEm": "2026-11-22T23:53:24.427Z"
     },
     {
       "uf": "MA",
@@ -95,15 +95,15 @@
       "termosNoRSS": 10,
       "assinaturaRss": "66568ab55500309f",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.759Z"
+      "consultadoEm": "2026-11-22T23:53:24.794Z"
     },
     {
       "uf": "MT",
       "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
-      "assinaturaRss": "f4fdde63d7135335",
+      "assinaturaRss": "0eb73e67db9df807",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.734Z"
+      "consultadoEm": "2026-11-22T23:53:24.689Z"
     },
     {
       "uf": "MS",
@@ -111,15 +111,15 @@
       "termosNoRSS": 10,
       "assinaturaRss": "cf4b2abddc11fb28",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:16.919Z"
+      "consultadoEm": "2026-11-22T23:53:24.569Z"
     },
     {
       "uf": "MG",
       "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
-      "assinaturaRss": "6dbf3bf583f66070",
+      "assinaturaRss": "fc0440e1f820d34e",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.016Z"
+      "consultadoEm": "2026-11-22T23:53:24.899Z"
     },
     {
       "uf": "PA",
@@ -127,7 +127,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "0f51ba8a2767db30",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.235Z"
+      "consultadoEm": "2026-11-22T23:53:24.885Z"
     },
     {
       "uf": "PB",
@@ -135,15 +135,15 @@
       "termosNoRSS": 10,
       "assinaturaRss": "499cf080beff1237",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.001Z"
+      "consultadoEm": "2026-11-22T23:53:25.022Z"
     },
     {
       "uf": "PR",
       "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
-      "assinaturaRss": "7c56b8ccf5e29c95",
+      "assinaturaRss": "1fdfc3a4312351e1",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.349Z"
+      "consultadoEm": "2026-11-22T23:53:25.338Z"
     },
     {
       "uf": "PE",
@@ -151,7 +151,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "05ea3b7aa86347fe",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.348Z"
+      "consultadoEm": "2026-11-22T23:53:25.112Z"
     },
     {
       "uf": "PI",
@@ -159,7 +159,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "18b5ffb44439f523",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.477Z"
+      "consultadoEm": "2026-11-22T23:53:25.086Z"
     },
     {
       "uf": "RJ",
@@ -167,7 +167,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "3158f60501828d76",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.590Z"
+      "consultadoEm": "2026-11-22T23:53:25.585Z"
     },
     {
       "uf": "RN",
@@ -175,15 +175,15 @@
       "termosNoRSS": 10,
       "assinaturaRss": "8c1ee5a15a534c6f",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.553Z"
+      "consultadoEm": "2026-11-22T23:53:25.429Z"
     },
     {
       "uf": "RS",
       "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
-      "assinaturaRss": "5c756c32d3faba63",
+      "assinaturaRss": "daa5eed1148b678e",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.585Z"
+      "consultadoEm": "2026-11-22T23:53:25.561Z"
     },
     {
       "uf": "RO",
@@ -191,7 +191,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "3f181755c892c5be",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.827Z"
+      "consultadoEm": "2026-11-22T23:53:25.834Z"
     },
     {
       "uf": "RR",
@@ -199,7 +199,7 @@
       "termosNoRSS": 7,
       "assinaturaRss": "98c87577335a105b",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.668Z"
+      "consultadoEm": "2026-11-22T23:53:25.842Z"
     },
     {
       "uf": "SC",
@@ -207,15 +207,15 @@
       "termosNoRSS": 10,
       "assinaturaRss": "fc40363d70b0fe77",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.805Z"
+      "consultadoEm": "2026-11-22T23:53:25.697Z"
     },
     {
       "uf": "SP",
       "status": "sem_termos_financeiros_no_recorte",
       "termosNoRSS": 10,
-      "assinaturaRss": "1801bd48e30aa32c",
+      "assinaturaRss": "5845ee385e016327",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:18.056Z"
+      "consultadoEm": "2026-11-22T23:53:26.069Z"
     },
     {
       "uf": "SE",
@@ -223,7 +223,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "4eccac45646bb076",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.916Z"
+      "consultadoEm": "2026-11-22T23:53:25.929Z"
     },
     {
       "uf": "TO",
@@ -231,7 +231,7 @@
       "termosNoRSS": 10,
       "assinaturaRss": "1569cee8db8b3c3c",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-22T23:50:17.936Z"
+      "consultadoEm": "2026-11-22T23:53:25.930Z"
     }
   ],
   "registros": [],
