@@ -6,12 +6,15 @@ const xml = [
   '<item><title>Anthropic IPO</title><link>https://trends.google.com/trending?geo=BR-MG</link><pubDate>Thu, 19 Nov 2026 20:00:00 GMT</pubDate></item>',
   '<item><title>dólar hoje</title><pubDate>Thu, 19 Nov 2026 19:00:00 GMT</pubDate></item>',
   '<item><title>futebol x basquete</title></item>',
-  '<item><title>dólar hoje</title></item>',
+  '<item><title>dolar hoje</title></item>',
   '</channel></rss>',
 ].join("");
 const mg = parseStateRSS(xml, "MG");
 assert.equal(UFS.length, 27);
 assert.equal(mg.totalRSS, 4);
+assert.match(mg.assinaturaRss, /^[a-f0-9]{16}$/);
+assert.equal(parseStateRSS(xml, "BA").assinaturaRss, mg.assinaturaRss);
+assert.notEqual(parseStateRSS(xml.replace("futebol x basquete", "tênis"), "BA").assinaturaRss, mg.assinaturaRss);
 assert.deepEqual(mg.registros.map((r) => r.termo), ["Anthropic IPO", "dólar hoje"]);
 assert.ok(mg.registros.every((r) => r.uf === "MG" && r.geoConsultado === "BR-MG"));
 assert.equal(mg.registros[0].dataFonte, "2026-11-19T20:00:00.000Z");
