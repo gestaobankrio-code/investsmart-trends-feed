@@ -1,0 +1,21 @@
+name: Auditoria de integridade geográfica Google Trends
+on:
+  push:
+    branches: [main]
+    paths:
+      - "collector/audit-state-rss.mjs"
+      - ".github/workflows/audit-state-rss.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Consultar as 27 UFs e o Brasil sem alterar dados publicados
+        run: node collector/audit-state-rss.mjs
