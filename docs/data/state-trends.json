@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "status": "ok",
   "versaoDados": "9fc870e9075e75c5",
-  "geradoEm": "2026-11-21T19:42:31.602Z",
+  "geradoEm": "2026-11-22T07:21:27.167Z",
   "origemExtracao": "google_trends_rss_regional",
   "fonteOficial": "Google Trends Trending Now RSS",
   "escopoTermos": "descoberta_estadual_por_geo",
@@ -15,191 +15,191 @@
     {
       "uf": "AC",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 6,
+      "termosNoRSS": 9,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:28.772Z"
+      "consultadoEm": "2026-11-22T07:21:25.594Z"
     },
     {
       "uf": "AL",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:28.845Z"
+      "consultadoEm": "2026-11-22T07:21:25.596Z"
     },
     {
       "uf": "AP",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 4,
+      "termosNoRSS": 7,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:28.752Z"
+      "consultadoEm": "2026-11-22T07:21:25.595Z"
     },
     {
       "uf": "AM",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.234Z"
+      "consultadoEm": "2026-11-22T07:21:25.852Z"
     },
     {
       "uf": "BA",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.288Z"
+      "consultadoEm": "2026-11-22T07:21:25.698Z"
     },
     {
       "uf": "CE",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.167Z"
+      "consultadoEm": "2026-11-22T07:21:25.846Z"
     },
     {
       "uf": "DF",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.574Z"
+      "consultadoEm": "2026-11-22T07:21:25.962Z"
     },
     {
       "uf": "ES",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.607Z"
+      "consultadoEm": "2026-11-22T07:21:25.967Z"
     },
     {
       "uf": "GO",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.617Z"
+      "consultadoEm": "2026-11-22T07:21:25.950Z"
     },
     {
       "uf": "MA",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.899Z"
+      "consultadoEm": "2026-11-22T07:21:26.058Z"
     },
     {
       "uf": "MT",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.866Z"
+      "consultadoEm": "2026-11-22T07:21:26.053Z"
     },
     {
       "uf": "MS",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:29.900Z"
+      "consultadoEm": "2026-11-22T07:21:26.053Z"
     },
     {
       "uf": "MG",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.253Z"
+      "consultadoEm": "2026-11-22T07:21:26.417Z"
     },
     {
       "uf": "PA",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.227Z"
+      "consultadoEm": "2026-11-22T07:21:26.152Z"
     },
     {
       "uf": "PB",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.158Z"
+      "consultadoEm": "2026-11-22T07:21:26.302Z"
     },
     {
       "uf": "PR",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.552Z"
+      "consultadoEm": "2026-11-22T07:21:26.629Z"
     },
     {
       "uf": "PE",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.520Z"
+      "consultadoEm": "2026-11-22T07:21:26.521Z"
     },
     {
       "uf": "PI",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.519Z"
+      "consultadoEm": "2026-11-22T07:21:26.503Z"
     },
     {
       "uf": "RJ",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.854Z"
+      "consultadoEm": "2026-11-22T07:21:26.873Z"
     },
     {
       "uf": "RN",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.793Z"
+      "consultadoEm": "2026-11-22T07:21:26.718Z"
     },
     {
       "uf": "RS",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.731Z"
+      "consultadoEm": "2026-11-22T07:21:26.739Z"
     },
     {
       "uf": "RO",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 7,
+      "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:31.215Z"
+      "consultadoEm": "2026-11-22T07:21:26.960Z"
     },
     {
       "uf": "RR",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 2,
+      "termosNoRSS": 6,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.981Z"
+      "consultadoEm": "2026-11-22T07:21:27.041Z"
     },
     {
       "uf": "SC",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:30.992Z"
+      "consultadoEm": "2026-11-22T07:21:26.960Z"
     },
     {
       "uf": "SP",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:31.514Z"
+      "consultadoEm": "2026-11-22T07:21:27.167Z"
     },
     {
       "uf": "SE",
       "status": "sem_tendencia_financeira",
       "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:31.601Z"
+      "consultadoEm": "2026-11-22T07:21:27.118Z"
     },
     {
       "uf": "TO",
       "status": "sem_tendencia_financeira",
-      "termosNoRSS": 6,
+      "termosNoRSS": 10,
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-21T19:42:31.470Z"
+      "consultadoEm": "2026-11-22T07:21:27.126Z"
     }
   ],
   "registros": [],
