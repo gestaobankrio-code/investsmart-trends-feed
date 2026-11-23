@@ -3,6 +3,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { isFinancialSearch, normalizeTopic } from "./finance-relevance.mjs";
+import { parseTrendingPage, trendingPageURL, TRENDING_WINDOW_HOURS } from "./trending-page.mjs";
 
 export const UFS = [
   "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS",
@@ -70,29 +71,30 @@ export function parseStateRSS(xml, uf) {
 
 async function fetchUF(uf) {
   const geo = "BR-" + uf;
-  const url = new URL(SOURCE);
-  url.searchParams.set("geo", geo);
+  const url = trendingPageURL(uf);
   try {
     const res = await fetch(url, {
       redirect: "follow",
       headers: {
         "user-agent": "Mozilla/5.0 (compatible; InvestSmartIntelligence/1.0)",
-        accept: "application/rss+xml,application/xml;q=0.9",
+        accept: "text/html",
       },
-      signal: AbortSignal.timeout(18000),
+      signal: AbortSignal.timeout(27000),
     });
-    if (!res.ok || new URL(res.url).searchParams.get("geo") !== geo) {
-      throw new Error("HTTP " + res.status + " ou resposta fora da UF solicitada");
+    const responseURL = new URL(res.url);
+    if (!res.ok || responseURL.hostname !== "trends.google.com" ||
+      responseURL.searchParams.get("geo") !== geo ||
+      responseURL.searchParams.get("hours") !== String(TRENDING_WINDOW_HOURS)) {
+      throw new Error("HTTP " + res.status + " ou resposta fora da UF/janela solicitadas");
     }
-    const body = await res.text();
-    const parsed = parseStateRSS(body, uf);
-    if (!parsed.totalRSS) throw new Error("RSS sem itens de tendências; não confundir com zero interesse financeiro");
+    const parsed = parseTrendingPage(await res.text(), uf);
     return {
       cobertura: {
         uf,
         status: parsed.registros.length ? "com_termos_financeiros" : "sem_termos_financeiros_no_recorte",
-        termosNoRSS: parsed.totalRSS,
-        assinaturaRss: parsed.assinaturaRss,
+        termosNaPagina: parsed.totalPagina,
+        termosCategoriaGoogle: parsed.termosCategoriaGoogle,
+        assinaturaPagina: parsed.assinaturaPagina,
         termosFinanceiros: parsed.registros.length,
         consultadoEm: new Date().toISOString(),
       },
@@ -101,7 +103,8 @@ async function fetchUF(uf) {
   } catch (error) {
     return {
       cobertura: {
-        uf, status: "falha_consulta", termosNoRSS: null,
+        uf, status: "falha_consulta", termosNaPagina: null,
+        termosCategoriaGoogle: null, assinaturaPagina: null,
         termosFinanceiros: null, consultadoEm: new Date().toISOString(),
         motivo: String(error instanceof Error ? error.message : error).slice(0, 180),
       },
@@ -124,42 +127,43 @@ export async function collectStateTrends() {
   );
   const cobertura = all.map((r) => r.cobertura);
   const geradoEm = new Date().toISOString();
-  // Um RSS idêntico em massa entre UFs é suspeito, mesmo com geo=BR-UF na URL.
+  // Páginas inteiras idênticas em massa entre UFs são suspeitas, mesmo com geo=BR-UF.
   // Repetições de uma palavra isolada entre estados continuam válidas.
   const geoCounts = new Map();
   for (const row of cobertura.filter((x) => x.status !== "falha_consulta")) {
-    const signature = row.assinaturaRss;
+    const signature = row.assinaturaPagina;
     geoCounts.set(signature, (geoCounts.get(signature) ?? 0) + 1);
   }
   const maxIdenticalRSS = Math.max(0, ...geoCounts.values());
   if (maxIdenticalRSS >= Math.ceil(success * 0.85)) {
-    throw new Error("Respostas RSS praticamente idênticas entre UFs: bloqueada publicação sem comprovação geográfica.");
+    throw new Error("Páginas Trending Now praticamente idênticas entre UFs: bloqueada publicação sem comprovação geográfica.");
   }
   const feedStatus = registros.length === 0
     ? "sem_dados_financeiros"
     : success === 27 ? "ok" : "parcial";
   const versaoDados = createHash("sha256")
-    .update(JSON.stringify({ cobertura: cobertura.map(({ uf, status, assinaturaRss }) => ({ uf, status, assinaturaRss })), registros }))
+    .update(JSON.stringify({ cobertura: cobertura.map(({ uf, status, assinaturaPagina }) => ({ uf, status, assinaturaPagina })), registros }))
     .digest("hex").slice(0, 16);
   const feed = {
     schemaVersion: 1,
     status: feedStatus,
     versaoDados, geradoEm,
-    origemExtracao: "google_trends_rss_regional",
-    fonteOficial: "Google Trends Trending Now RSS",
+    origemExtracao: "google_trends_pagina_regional_7d",
+    fonteOficial: "Google Trends Trending Now — página pública",
     escopoTermos: "descoberta_estadual_por_geo",
-    periodo: "lista de tendências recentes disponibilizada pelo Google; não representa todas as buscas",
+    periodo: "destaques das últimas 168 horas retornados pelo Google para cada UF; não representa todas as buscas",
     ufConsultadas: UFS.length,
     ufRespondidas: success,
     ufComTermosFinanceiros: cobertura.filter((c) => c.status === "com_termos_financeiros").length,
     totalRegistros: registros.length,
-    diagnosticoGeografico: { assinaturasRssDistintas: geoCounts.size, maiorGrupoRssIdentico: maxIdenticalRSS },
+    diagnosticoGeografico: { assinaturasPaginaDistintas: geoCounts.size, maiorGrupoPaginaIdentica: maxIdenticalRSS },
+    janelaHoras: TRENDING_WINDOW_HOURS,
     disponibilidadeFinanceira: registros.length ? "com_resultados" : "sem_termos_no_recorte",
     cobertura, registros,
     metodologia: {
-      selecao: "Cada solicitação consulta geo=BR-UF; apenas os termos devolvidos naquela UF entram no feed estadual.",
-      classificacao: "Somente assuntos com pertinência financeira verificada por regras temáticas; nenhuma palavra de resultado é pré-cadastrada.",
-      ausencia: "Cada RSS apresenta cerca de 10 destaques; zero termos financeiros classificados não comprova ausência de pesquisas financeiras na UF.",
+      selecao: "Cada solicitação consulta a página pública com geo=BR-UF na janela de 168 horas, sem lista fixa de resultados.",
+      classificacao: "Somente termos do Google na categoria Negócios e Finanças (id 3) e reconhecidos por regras de pertinência financeira; nenhum termo é fabricado.",
+      ausencia: "Trending Now não inclui todas as pesquisas; nenhum termo financeiro na janela não significa demanda financeira zero.",
       temperatura: "O RSS não fornece série temporal comparável; nenhuma temperatura Quente/Morno/Frio é inventada.",
     },
   };
