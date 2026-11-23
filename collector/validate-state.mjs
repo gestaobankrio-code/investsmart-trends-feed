@@ -12,7 +12,8 @@ if (!["ok", "parcial", "sem_dados_financeiros"].includes(feed.status)) issues.pu
 if (feed.totalRegistros === 0 && feed.status !== "sem_dados_financeiros") issues.push("status OK sem termos financeiros");
 if (feed.totalRegistros > 0 && feed.status === "sem_dados_financeiros") issues.push("status sem dados incompatível");
 if (feed.status !== status.status) issues.push("status e feed divergentes");
-if (feed.origemExtracao !== "google_trends_rss_regional") issues.push("fonte estadual");
+if (feed.origemExtracao !== "google_trends_pagina_regional_7d") issues.push("fonte estadual");
+if (feed.janelaHoras !== 168) issues.push("janela de 168 horas incorreta");
 if (feed.escopoTermos !== "descoberta_estadual_por_geo") issues.push("origem por geo");
 if (feed.versaoDados !== status.versaoDados) issues.push("versões divergentes");
 if (!Array.isArray(feed.cobertura) || feed.cobertura.length !== 27) issues.push("cobertura das 27 UFs");
@@ -23,6 +24,8 @@ for (const row of feed.registros ?? []) {
   if (row.escopo !== "tendencia_descoberta_na_uf") issues.push("termo sem evidência estadual");
   if (!isFinancialSearch(row.termo)) issues.push("termo não financeiro: " + row.termo);
   if (row.fonte !== "Google Trends Trending Now") issues.push("fonte inválida");
+  if (row.categoriaGoogleId !== 3 || row.categoriaGoogle !== "Negócios e Finanças") issues.push("categoria Google incorreta");
+  if (row.janelaHoras !== 168) issues.push("janela de termo incorreta");
   try {
     const u = new URL(row.urlFonte);
     if (u.protocol !== "https:" || u.hostname !== "trends.google.com") issues.push("URL não oficial");
@@ -38,7 +41,11 @@ for (const item of feed.cobertura ?? []) {
   if (!["com_termos_financeiros", "sem_termos_financeiros_no_recorte", "falha_consulta"].includes(item.status)) {
     issues.push("status da cobertura inválido");
   }
-  if (item.status !== "falha_consulta" && !/^[a-f0-9]{16}$/.test(item.assinaturaRss ?? "")) issues.push("assinatura RSS ausente");
+  if (item.status !== "falha_consulta" && !/^[a-f0-9]{16}$/.test(item.assinaturaPagina ?? "")) issues.push("assinatura da página ausente");
+  if (item.status !== "falha_consulta" &&
+      (!Number.isInteger(item.termosNaPagina) || item.termosNaPagina <= 0 ||
+       !Number.isInteger(item.termosCategoriaGoogle) ||
+       item.termosCategoriaGoogle > item.termosNaPagina)) issues.push("contagem da página inválida");
   if (item.status === "com_termos_financeiros" && !(item.termosFinanceiros > 0)) issues.push("UF marcada com dados mas sem termos");
   if (item.status === "sem_termos_financeiros_no_recorte" && item.termosFinanceiros !== 0) issues.push("UF vazia inconsistente");
   coverage.add(item.uf);
@@ -48,7 +55,7 @@ if (status.totalRegistros !== feed.totalRegistros) issues.push("contagem status"
 if (feed.ufRespondidas < 20 || feed.ufRespondidas > 27) issues.push("cobertura insuficiente");
 if (feed.ufRespondidas !== feed.cobertura.filter((x) => x.status !== "falha_consulta").length) issues.push("UFs respondidas divergentes");
 if (feed.ufComTermosFinanceiros !== feed.cobertura.filter((x) => x.status === "com_termos_financeiros").length) issues.push("UFs financeiras divergentes");
-if (feed.diagnosticoGeografico?.maiorGrupoRssIdentico >= Math.ceil(feed.ufRespondidas * 0.85)) issues.push("respostas RSS replicadas em massa");
+if (feed.diagnosticoGeografico?.maiorGrupoPaginaIdentica >= Math.ceil(feed.ufRespondidas * 0.85)) issues.push("respostas estaduais replicadas em massa");
 if (feed.totalRegistros === 0 && feed.disponibilidadeFinanceira !== "sem_termos_no_recorte") issues.push("disponibilidade financeira incorreta");
 if (feed.totalRegistros > 0 && feed.disponibilidadeFinanceira !== "com_resultados") issues.push("disponibilidade financeira incorreta");
 if (status.disponibilidadeFinanceira !== feed.disponibilidadeFinanceira) issues.push("disponibilidade feed/status divergente");
