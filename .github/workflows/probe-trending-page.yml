@@ -1,0 +1,21 @@
+name: Testar Trends por UF e categoria financeira
+on:
+  push:
+    branches: [main]
+    paths:
+      - "collector/probe-trending-page.mjs"
+      - ".github/workflows/probe-trending-page.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Sondar tendências reais por estado
+        run: node collector/probe-trending-page.mjs
