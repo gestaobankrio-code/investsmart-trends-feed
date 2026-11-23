@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "collector/state-trends.mjs"
+      - "collector/trending-page.mjs"
+      - "collector/test-trending-page.mjs"
       - "collector/test-state-rss.mjs"
       - "collector/validate-state.mjs"
       - "collector/finance-relevance.mjs"
@@ -25,11 +27,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-      - name: Testar parser estadual e classificação financeira
+      - name: Testar parser estadual, categoria oficial e classificação financeira
         run: |
           node --check collector/state-trends.mjs
+          node --check collector/trending-page.mjs
           node collector/test-state-rss.mjs
-      - name: Consultar os 27 feeds RSS estaduais do Google
+          node collector/test-trending-page.mjs
+      - name: Consultar as 27 páginas Google Trends por estado na janela de sete dias
         run: node collector/state-trends.mjs
       - name: Validar procedência por UF
         run: node collector/validate-state.mjs
@@ -37,7 +41,7 @@ jobs:
         run: |
           git add docs/data/state-trends.json docs/data/state-status.json
           if git diff --cached --quiet; then
-            echo "RSS estadual sem alterações."
+            echo "Tendências estaduais sem alterações."
             exit 0
           fi
           git config user.name "github-actions[bot]"
