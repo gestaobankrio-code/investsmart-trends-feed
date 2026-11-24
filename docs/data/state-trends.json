@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "versaoDados": "263f9930e397ceaf",
-  "geradoEm": "2026-11-24T10:21:23.853Z",
+  "versaoDados": "f824af25fec06983",
+  "geradoEm": "2026-11-24T22:43:08.136Z",
   "origemExtracao": "google_trends_pagina_regional_7d",
   "fonteOficial": "Google Trends Trending Now — página pública",
   "escopoTermos": "descoberta_estadual_por_geo",
@@ -10,7 +10,7 @@
   "ufConsultadas": 27,
   "ufRespondidas": 27,
   "ufComTermosFinanceiros": 24,
-  "totalRegistros": 47,
+  "totalRegistros": 41,
   "diagnosticoGeografico": {
     "assinaturasPaginaDistintas": 27,
     "maiorGrupoPaginaIdentica": 1
@@ -21,262 +21,248 @@
     {
       "uf": "AC",
       "status": "sem_termos_financeiros_no_recorte",
-      "termosNaPagina": 35,
+      "termosNaPagina": 38,
       "termosCategoriaGoogle": 0,
-      "assinaturaPagina": "c812b5696fcdc6f6",
+      "assinaturaPagina": "37cd5d51dadb9245",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-24T10:21:22.184Z"
+      "consultadoEm": "2026-11-24T22:43:05.470Z"
     },
     {
       "uf": "AL",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 81,
-      "termosCategoriaGoogle": 5,
-      "assinaturaPagina": "be210634dc5da76c",
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:22.196Z"
+      "termosNaPagina": 84,
+      "termosCategoriaGoogle": 4,
+      "assinaturaPagina": "1f80b56a25775acb",
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-24T22:43:05.488Z"
     },
     {
       "uf": "AP",
       "status": "sem_termos_financeiros_no_recorte",
-      "termosNaPagina": 34,
+      "termosNaPagina": 33,
       "termosCategoriaGoogle": 0,
-      "assinaturaPagina": "4c9fd76b9b3d6944",
+      "assinaturaPagina": "e519a3f8e5786bf6",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-24T10:21:22.191Z"
+      "consultadoEm": "2026-11-24T22:43:05.477Z"
     },
     {
       "uf": "AM",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 125,
-      "termosCategoriaGoogle": 8,
-      "assinaturaPagina": "7e7585b176e19918",
+      "termosNaPagina": 132,
+      "termosCategoriaGoogle": 7,
+      "assinaturaPagina": "53763b3efd90256f",
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-24T10:21:22.349Z"
+      "consultadoEm": "2026-11-24T22:43:05.793Z"
     },
     {
       "uf": "BA",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 286,
-      "termosCategoriaGoogle": 10,
-      "assinaturaPagina": "43beeb3f7dee9e01",
+      "termosNaPagina": 303,
+      "termosCategoriaGoogle": 11,
+      "assinaturaPagina": "4e7f6db43c296dc7",
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-24T10:21:22.402Z"
+      "consultadoEm": "2026-11-24T22:43:05.731Z"
     },
     {
       "uf": "CE",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 188,
+      "termosNaPagina": 194,
       "termosCategoriaGoogle": 11,
-      "assinaturaPagina": "16884120e4834830",
+      "assinaturaPagina": "cd6d889dad0ed972",
       "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:22.392Z"
+      "consultadoEm": "2026-11-24T22:43:05.714Z"
     },
     {
       "uf": "DF",
       "status": "com_termos_financeiros",
       "termosNaPagina": 151,
       "termosCategoriaGoogle": 9,
-      "assinaturaPagina": "ab696072f5c03707",
-      "termosFinanceiros": 3,
-      "consultadoEm": "2026-11-24T10:21:22.587Z"
+      "assinaturaPagina": "8ffc1ee83ac92d93",
+      "termosFinanceiros": 2,
+      "consultadoEm": "2026-11-24T22:43:06.123Z"
     },
     {
       "uf": "ES",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 142,
-      "termosCategoriaGoogle": 9,
-      "assinaturaPagina": "98beeee34568038e",
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:22.562Z"
+      "termosNaPagina": 146,
+      "termosCategoriaGoogle": 7,
+      "assinaturaPagina": "953d79240bb48351",
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-24T22:43:06.024Z"
     },
     {
       "uf": "GO",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 199,
-      "termosCategoriaGoogle": 12,
-      "assinaturaPagina": "feb837b0aa2c95e7",
+      "termosNaPagina": 201,
+      "termosCategoriaGoogle": 11,
+      "assinaturaPagina": "de1415ce07642f72",
       "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:22.582Z"
+      "consultadoEm": "2026-11-24T22:43:06.008Z"
     },
     {
       "uf": "MA",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 129,
-      "termosCategoriaGoogle": 10,
-      "assinaturaPagina": "48fa6d945a95c67e",
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:22.728Z"
+      "termosNaPagina": 132,
+      "termosCategoriaGoogle": 7,
+      "assinaturaPagina": "7f110cc36c706304",
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-24T22:43:06.489Z"
     },
     {
       "uf": "MT",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 126,
-      "termosCategoriaGoogle": 9,
-      "assinaturaPagina": "ea21e43e8a5898a2",
+      "termosNaPagina": 131,
+      "termosCategoriaGoogle": 8,
+      "assinaturaPagina": "c05e0f77101a6e91",
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-24T10:21:22.747Z"
+      "consultadoEm": "2026-11-24T22:43:06.359Z"
     },
     {
       "uf": "MS",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 113,
-      "termosCategoriaGoogle": 9,
-      "assinaturaPagina": "0e1de73e0e467152",
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:22.737Z"
+      "termosNaPagina": 117,
+      "termosCategoriaGoogle": 6,
+      "assinaturaPagina": "ac0bc4552531cbe5",
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-24T22:43:06.345Z"
     },
     {
       "uf": "MG",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 478,
-      "termosCategoriaGoogle": 33,
-      "assinaturaPagina": "3e61df456c6b8854",
+      "termosNaPagina": 512,
+      "termosCategoriaGoogle": 30,
+      "assinaturaPagina": "75bd40d8073f2c05",
       "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:22.950Z"
+      "consultadoEm": "2026-11-24T22:43:06.768Z"
     },
     {
       "uf": "PA",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 159,
-      "termosCategoriaGoogle": 8,
-      "assinaturaPagina": "f4e9a14e88fcad76",
+      "termosNaPagina": 162,
+      "termosCategoriaGoogle": 7,
+      "assinaturaPagina": "a026312987764045",
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-24T10:21:22.909Z"
+      "consultadoEm": "2026-11-24T22:43:06.756Z"
     },
     {
       "uf": "PB",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 112,
-      "termosCategoriaGoogle": 8,
-      "assinaturaPagina": "c1c100a3c1bbd976",
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:22.913Z"
+      "termosNaPagina": 113,
+      "termosCategoriaGoogle": 6,
+      "assinaturaPagina": "fcccdde46580dfeb",
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-24T22:43:06.703Z"
     },
     {
       "uf": "PR",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 340,
+      "termosNaPagina": 358,
       "termosCategoriaGoogle": 19,
-      "assinaturaPagina": "8280f22dbf10e827",
+      "assinaturaPagina": "852159d8bc54c0ba",
       "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:23.143Z"
+      "consultadoEm": "2026-11-24T22:43:07.043Z"
     },
     {
       "uf": "PE",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 197,
+      "termosNaPagina": 204,
       "termosCategoriaGoogle": 12,
-      "assinaturaPagina": "ab447441464ce619",
+      "assinaturaPagina": "616637456b767a36",
       "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:23.140Z"
+      "consultadoEm": "2026-11-24T22:43:06.998Z"
     },
     {
       "uf": "PI",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 78,
-      "termosCategoriaGoogle": 6,
-      "assinaturaPagina": "07a43dad992b5cea",
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:23.119Z"
+      "termosNaPagina": 83,
+      "termosCategoriaGoogle": 4,
+      "assinaturaPagina": "671c57bc5a3330b3",
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-24T22:43:06.969Z"
     },
     {
       "uf": "RJ",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 523,
-      "termosCategoriaGoogle": 31,
-      "assinaturaPagina": "f96dad4dc616b544",
+      "termosNaPagina": 549,
+      "termosCategoriaGoogle": 35,
+      "assinaturaPagina": "45c199da43491ee5",
       "termosFinanceiros": 4,
-      "consultadoEm": "2026-11-24T10:21:23.398Z"
+      "consultadoEm": "2026-11-24T22:43:07.322Z"
     },
     {
       "uf": "RN",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 97,
-      "termosCategoriaGoogle": 8,
-      "assinaturaPagina": "d175c92b51a72f80",
-      "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:23.275Z"
+      "termosNaPagina": 100,
+      "termosCategoriaGoogle": 7,
+      "assinaturaPagina": "9d47d49722425479",
+      "termosFinanceiros": 1,
+      "consultadoEm": "2026-11-24T22:43:07.262Z"
     },
     {
       "uf": "RS",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 346,
-      "termosCategoriaGoogle": 26,
-      "assinaturaPagina": "4ef141dc0b317c6c",
+      "termosNaPagina": 365,
+      "termosCategoriaGoogle": 25,
+      "assinaturaPagina": "2866a91fc2c51b22",
       "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:23.323Z"
+      "consultadoEm": "2026-11-24T22:43:07.328Z"
     },
     {
       "uf": "RO",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 60,
-      "termosCategoriaGoogle": 2,
-      "assinaturaPagina": "51f91f3ebed1983d",
+      "termosNaPagina": 62,
+      "termosCategoriaGoogle": 1,
+      "assinaturaPagina": "f4a2a8fc67946f13",
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-24T10:21:23.526Z"
+      "consultadoEm": "2026-11-24T22:43:07.526Z"
     },
     {
       "uf": "RR",
       "status": "sem_termos_financeiros_no_recorte",
-      "termosNaPagina": 28,
+      "termosNaPagina": 29,
       "termosCategoriaGoogle": 0,
-      "assinaturaPagina": "1c5d0249129d40a2",
+      "assinaturaPagina": "c2fcfded087fd7fe",
       "termosFinanceiros": 0,
-      "consultadoEm": "2026-11-24T10:21:23.509Z"
+      "consultadoEm": "2026-11-24T22:43:07.609Z"
     },
     {
       "uf": "SC",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 271,
-      "termosCategoriaGoogle": 17,
-      "assinaturaPagina": "798d6eaf9654d52f",
+      "termosNaPagina": 273,
+      "termosCategoriaGoogle": 16,
+      "assinaturaPagina": "b4d18f9d32345591",
       "termosFinanceiros": 2,
-      "consultadoEm": "2026-11-24T10:21:23.573Z"
+      "consultadoEm": "2026-11-24T22:43:07.689Z"
     },
     {
       "uf": "SP",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 900,
-      "termosCategoriaGoogle": 66,
-      "assinaturaPagina": "39928a40962c257e",
-      "termosFinanceiros": 5,
-      "consultadoEm": "2026-11-24T10:21:23.853Z"
+      "termosNaPagina": 928,
+      "termosCategoriaGoogle": 69,
+      "assinaturaPagina": "f581bfe654d3a532",
+      "termosFinanceiros": 7,
+      "consultadoEm": "2026-11-24T22:43:08.135Z"
     },
     {
       "uf": "SE",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 85,
-      "termosCategoriaGoogle": 4,
-      "assinaturaPagina": "f9218b97d2a12c3e",
+      "termosNaPagina": 89,
+      "termosCategoriaGoogle": 3,
+      "assinaturaPagina": "6a02494bf2252fd8",
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-24T10:21:23.742Z"
+      "consultadoEm": "2026-11-24T22:43:07.906Z"
     },
     {
       "uf": "TO",
       "status": "com_termos_financeiros",
-      "termosNaPagina": 55,
-      "termosCategoriaGoogle": 2,
-      "assinaturaPagina": "3fb7eff48b6ef75e",
+      "termosNaPagina": 60,
+      "termosCategoriaGoogle": 1,
+      "assinaturaPagina": "19a03b640c755cd8",
       "termosFinanceiros": 1,
-      "consultadoEm": "2026-11-24T10:21:23.703Z"
+      "consultadoEm": "2026-11-24T22:43:07.875Z"
     }
   ],
   "registros": [
-    {
-      "uf": "AL",
-      "termo": "débito",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-17T16:30:00.000Z",
-      "urlFonte": "https://trends.google.com/trending?geo=BR-AL&hl=pt-BR&hours=168",
-      "geoConsultado": "BR-AL",
-      "interesse": "em_destaque",
-      "categoriaGoogle": "Negócios e Finanças",
-      "categoriaGoogleId": 3,
-      "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 100
-    },
     {
       "uf": "AL",
       "termo": "dolar",
@@ -307,10 +293,10 @@
     },
     {
       "uf": "BA",
-      "termo": "dolar",
+      "termo": "dolar hoje",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-23T12:30:00.000Z",
+      "dataFonte": "2026-11-23T09:40:00.000Z",
       "urlFonte": "https://trends.google.com/trending?geo=BR-BA&hl=pt-BR&hours=168",
       "geoConsultado": "BR-BA",
       "interesse": "em_destaque",
@@ -363,20 +349,6 @@
     },
     {
       "uf": "DF",
-      "termo": "débito",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-17T15:10:00.000Z",
-      "urlFonte": "https://trends.google.com/trending?geo=BR-DF&hl=pt-BR&hours=168",
-      "geoConsultado": "BR-DF",
-      "interesse": "em_destaque",
-      "categoriaGoogle": "Negócios e Finanças",
-      "categoriaGoogleId": 3,
-      "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 100
-    },
-    {
-      "uf": "DF",
       "termo": "dolar hoje",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
@@ -388,20 +360,6 @@
       "categoriaGoogleId": 3,
       "janelaHoras": 168,
       "volumeBuscaMinimoEstimado": 5000
-    },
-    {
-      "uf": "ES",
-      "termo": "débito",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-17T11:40:00.000Z",
-      "urlFonte": "https://trends.google.com/trending?geo=BR-ES&hl=pt-BR&hours=168",
-      "geoConsultado": "BR-ES",
-      "interesse": "em_destaque",
-      "categoriaGoogle": "Negócios e Finanças",
-      "categoriaGoogleId": 3,
-      "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 500
     },
     {
       "uf": "ES",
@@ -447,20 +405,6 @@
     },
     {
       "uf": "MA",
-      "termo": "débito",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-17T11:00:00.000Z",
-      "urlFonte": "https://trends.google.com/trending?geo=BR-MA&hl=pt-BR&hours=168",
-      "geoConsultado": "BR-MA",
-      "interesse": "em_destaque",
-      "categoriaGoogle": "Negócios e Finanças",
-      "categoriaGoogleId": 3,
-      "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 1000
-    },
-    {
-      "uf": "MA",
       "termo": "dolar hoje",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
@@ -489,10 +433,10 @@
     },
     {
       "uf": "MG",
-      "termo": "dólar",
+      "termo": "dolar despenca",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-23T14:20:00.000Z",
+      "dataFonte": "2026-11-24T21:10:00.000Z",
       "urlFonte": "https://trends.google.com/trending?geo=BR-MG&hl=pt-BR&hours=168",
       "geoConsultado": "BR-MG",
       "interesse": "em_destaque",
@@ -500,20 +444,6 @@
       "categoriaGoogleId": 3,
       "janelaHoras": 168,
       "volumeBuscaMinimoEstimado": 50000
-    },
-    {
-      "uf": "MS",
-      "termo": "débito",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-17T15:00:00.000Z",
-      "urlFonte": "https://trends.google.com/trending?geo=BR-MS&hl=pt-BR&hours=168",
-      "geoConsultado": "BR-MS",
-      "interesse": "em_destaque",
-      "categoriaGoogle": "Negócios e Finanças",
-      "categoriaGoogleId": 3,
-      "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 200
     },
     {
       "uf": "MS",
@@ -541,7 +471,7 @@
       "categoriaGoogle": "Negócios e Finanças",
       "categoriaGoogleId": 3,
       "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 5000
+      "volumeBuscaMinimoEstimado": 10000
     },
     {
       "uf": "PA",
@@ -556,20 +486,6 @@
       "categoriaGoogleId": 3,
       "janelaHoras": 168,
       "volumeBuscaMinimoEstimado": 5000
-    },
-    {
-      "uf": "PB",
-      "termo": "débito",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-17T14:30:00.000Z",
-      "urlFonte": "https://trends.google.com/trending?geo=BR-PB&hl=pt-BR&hours=168",
-      "geoConsultado": "BR-PB",
-      "interesse": "em_destaque",
-      "categoriaGoogle": "Negócios e Finanças",
-      "categoriaGoogleId": 3,
-      "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 500
     },
     {
       "uf": "PB",
@@ -615,20 +531,6 @@
     },
     {
       "uf": "PI",
-      "termo": "débito",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-17T15:30:00.000Z",
-      "urlFonte": "https://trends.google.com/trending?geo=BR-PI&hl=pt-BR&hours=168",
-      "geoConsultado": "BR-PI",
-      "interesse": "em_destaque",
-      "categoriaGoogle": "Negócios e Finanças",
-      "categoriaGoogleId": 3,
-      "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 200
-    },
-    {
-      "uf": "PI",
       "termo": "dolar hoje",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
@@ -657,10 +559,10 @@
     },
     {
       "uf": "PR",
-      "termo": "dolar hoje",
+      "termo": "dolar despenca",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-23T09:20:00.000Z",
+      "dataFonte": "2026-11-24T21:50:00.000Z",
       "urlFonte": "https://trends.google.com/trending?geo=BR-PR&hl=pt-BR&hours=168",
       "geoConsultado": "BR-PR",
       "interesse": "em_destaque",
@@ -699,10 +601,10 @@
     },
     {
       "uf": "RJ",
-      "termo": "dolar",
+      "termo": "dolar despenca",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-23T11:10:00.000Z",
+      "dataFonte": "2026-11-24T20:50:00.000Z",
       "urlFonte": "https://trends.google.com/trending?geo=BR-RJ&hl=pt-BR&hours=168",
       "geoConsultado": "BR-RJ",
       "interesse": "em_destaque",
@@ -724,20 +626,6 @@
       "categoriaGoogleId": 3,
       "janelaHoras": 168,
       "volumeBuscaMinimoEstimado": 100
-    },
-    {
-      "uf": "RN",
-      "termo": "débito",
-      "fonte": "Google Trends Trending Now",
-      "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-17T15:10:00.000Z",
-      "urlFonte": "https://trends.google.com/trending?geo=BR-RN&hl=pt-BR&hours=168",
-      "geoConsultado": "BR-RN",
-      "interesse": "em_destaque",
-      "categoriaGoogle": "Negócios e Finanças",
-      "categoriaGoogleId": 3,
-      "janelaHoras": 168,
-      "volumeBuscaMinimoEstimado": 500
     },
     {
       "uf": "RN",
@@ -797,10 +685,10 @@
     },
     {
       "uf": "SC",
-      "termo": "dólar hoje",
+      "termo": "dolar hoje",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-23T12:00:00.000Z",
+      "dataFonte": "2026-11-23T08:50:00.000Z",
       "urlFonte": "https://trends.google.com/trending?geo=BR-SC&hl=pt-BR&hours=168",
       "geoConsultado": "BR-SC",
       "interesse": "em_destaque",
@@ -881,10 +769,10 @@
     },
     {
       "uf": "SP",
-      "termo": "dolar hoje",
+      "termo": "dolar despenca",
       "fonte": "Google Trends Trending Now",
       "escopo": "tendencia_descoberta_na_uf",
-      "dataFonte": "2026-11-23T09:10:00.000Z",
+      "dataFonte": "2026-11-24T19:50:00.000Z",
       "urlFonte": "https://trends.google.com/trending?geo=BR-SP&hl=pt-BR&hours=168",
       "geoConsultado": "BR-SP",
       "interesse": "em_destaque",
@@ -892,6 +780,20 @@
       "categoriaGoogleId": 3,
       "janelaHoras": 168,
       "volumeBuscaMinimoEstimado": 100000
+    },
+    {
+      "uf": "SP",
+      "termo": "ipo anthropic",
+      "fonte": "Google Trends Trending Now",
+      "escopo": "tendencia_descoberta_na_uf",
+      "dataFonte": "2026-11-19T11:30:00.000Z",
+      "urlFonte": "https://trends.google.com/trending?geo=BR-SP&hl=pt-BR&hours=168",
+      "geoConsultado": "BR-SP",
+      "interesse": "em_destaque",
+      "categoriaGoogle": "Negócios e Finanças",
+      "categoriaGoogleId": 3,
+      "janelaHoras": 168,
+      "volumeBuscaMinimoEstimado": 2000
     },
     {
       "uf": "SP",
@@ -906,6 +808,20 @@
       "categoriaGoogleId": 3,
       "janelaHoras": 168,
       "volumeBuscaMinimoEstimado": 2000
+    },
+    {
+      "uf": "SP",
+      "termo": "mercado financeiro",
+      "fonte": "Google Trends Trending Now",
+      "escopo": "tendencia_descoberta_na_uf",
+      "dataFonte": "2026-11-24T18:40:00.000Z",
+      "urlFonte": "https://trends.google.com/trending?geo=BR-SP&hl=pt-BR&hours=168",
+      "geoConsultado": "BR-SP",
+      "interesse": "em_destaque",
+      "categoriaGoogle": "Negócios e Finanças",
+      "categoriaGoogleId": 3,
+      "janelaHoras": 168,
+      "volumeBuscaMinimoEstimado": 200
     },
     {
       "uf": "TO",

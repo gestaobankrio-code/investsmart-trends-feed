@@ -1,13 +1,13 @@
 {
   "status": "ok",
-  "versaoDados": "263f9930e397ceaf",
-  "ultimaVerificacao": "2026-11-24T10:21:23.853Z",
+  "versaoDados": "f824af25fec06983",
+  "ultimaVerificacao": "2026-11-24T22:43:08.136Z",
   "origemExtracao": "google_trends_pagina_regional_7d",
   "escopoTermos": "descoberta_estadual_por_geo",
   "ufConsultadas": 27,
   "ufRespondidas": 27,
   "ufComTermosFinanceiros": 24,
-  "totalRegistros": 47,
+  "totalRegistros": 41,
   "disponibilidadeFinanceira": "com_resultados",
   "diagnosticoGeografico": {
     "assinaturasPaginaDistintas": 27,
